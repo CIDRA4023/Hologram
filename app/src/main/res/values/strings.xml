@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Hologram</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="live">LIVE</string>
+    <string name="Schedule">配信予定</string>
+    <string name="Archives">アーカイブ</string>
+
+    <string name="header_name_today">今日の配信</string>
+    <string name="header_name_tomorrow">明日の配信</string>
+
+    <string name="fab_title">並び替え</string>
+
+    <string name="start_text">開始</string>
+    <string name="current_viewer_count_unit">人視聴中</string>
+    <string name="view_count_unit">回再生</string>
+
+    <string name="fab_text_start_time_live">開始時間</string>
+    <string name="fab_text_viewer_live">視聴者数</string>
+
+    <string name="fab_text_like_archives">いいね</string>
+    <string name="fab_text_update_archives">投稿時間</string>
+    <string name="fab_text_viewer_archives">再生回数</string>
+
+
+</resources>

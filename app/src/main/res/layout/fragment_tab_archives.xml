@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cidra.hologram.viewmodels.ArchivesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_tab_archives_scene"
+        tools:context="com.cidra.hologram.MainActivity">
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="144dp"
+            android:layout_height="144dp"
+            android:contentDescription="@xml/fragment_tab_archives_scene"
+            app:YoutubeStatus="@{viewModel.status}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/SwipeRefresh_live"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{viewModel::refresh}"
+            app:refreshing="@{viewModel.isLoading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/video_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:ArchivesListData="@{viewModel.response}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_archives" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/fab_main">
+
+            <TextView
+                android:id="@+id/text_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fab_title"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+                app:layout_constraintEnd_toStartOf="@+id/fab_main" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_like_archives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+            app:layout_constraintEnd_toStartOf="@+id/fab_main">
+
+            <TextView
+                android:id="@+id/text_good"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fab_text_like_archives"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+                app:layout_constraintEnd_toStartOf="@+id/fab_main" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_viewer_archives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+            app:layout_constraintEnd_toStartOf="@+id/fab_main">
+
+            <TextView
+                android:id="@+id/text_viewer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fab_text_viewer_archives"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+                app:layout_constraintEnd_toStartOf="@+id/fab_main" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+            app:layout_constraintEnd_toStartOf="@+id/fab_main">
+
+            <TextView
+                android:id="@+id/text_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fab_text_update_archives"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fab_main"
+                app:layout_constraintEnd_toStartOf="@+id/fab_main" />
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_viewer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="72dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.sorByViewer()}"
+            android:src="@drawable/ic_baseline_visibility_24"
+            app:fabCustomSize="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="72dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.sorByUpdate()}"
+            android:src="@drawable/ic_baseline_schedule_24"
+            app:fabCustomSize="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="72dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.sorByGood()}"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            app:fabCustomSize="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="72dp"
+            android:src="@drawable/ic_baseline_sort_24"
+            app:fabCustomSize="72dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>
