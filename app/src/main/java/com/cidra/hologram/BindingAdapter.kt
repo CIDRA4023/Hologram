@@ -85,8 +85,7 @@ fun TextView.bindSText(item: String?) {
 fun TextView.currentViewerFormat(count: Int) {
     return when (count.toString().length) {
         0, 1, 2, 3, 4 -> text = "$count".plus(" 人視聴中")
-        5, 6 -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
-        else -> return
+        else -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
     }
 }
 
@@ -94,8 +93,7 @@ fun TextView.currentViewerFormat(count: Int) {
 fun TextView.viewerFormat(count: Int) {
     return when (count.toString().length) {
         0, 1, 2, 3, 4 -> text = "$count".plus(" 回再生")
-        5, 6 -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生")
-        else -> return
+        else -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生")
     }
 }
 
