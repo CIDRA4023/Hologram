@@ -30,7 +30,7 @@ object FirebaseService {
                         it.child("title").value.toString(),
                         it.child("thumbnailUrl").value.toString(),
                         it.child("startTime").value.toString(),
-                        it.child("currentViewers").value.toString().toInt(),
+                        it.child("currentViewers").value.toString(),
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString()
                     )
