@@ -1,5 +1,6 @@
 package com.cidra.hologram
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -86,7 +87,7 @@ fun TextView.currentViewerFormat(count: String) {
     return when (count.length) {
         0, 1, 2, 3, 4 -> text = count.plus(" 人視聴中")
         5, 6 -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
-        else -> return
+        else -> text = count
     }
 }
 
