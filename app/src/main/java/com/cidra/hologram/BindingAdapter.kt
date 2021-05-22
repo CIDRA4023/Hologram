@@ -12,7 +12,7 @@ import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
-import com.cidra.hologram.viewmodels.YoutubeApiStatus
+import com.cidra.hologram.viewmodels.NetworkStatus
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ceil
@@ -104,17 +104,17 @@ fun TextView.viewerFormat(count: Int) {
  *
  */
 @BindingAdapter("YoutubeStatus")
-fun bindStatus(statusImageView: ImageView, status: YoutubeApiStatus?) {
+fun bindStatus(statusImageView: ImageView, status: NetworkStatus?) {
     when (status) {
-        YoutubeApiStatus.LOADING -> {
+        NetworkStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
         }
-        YoutubeApiStatus.ERROR -> {
+        NetworkStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
-        YoutubeApiStatus.DONE -> {
+        NetworkStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
     }

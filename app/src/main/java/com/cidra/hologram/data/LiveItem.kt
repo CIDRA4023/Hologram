@@ -1,10 +1,11 @@
 package com.cidra.hologram.data
 
 data class LiveItem(
-        val videoID: String,
-        val thumbnailUrl: String,
+        val videoId: String,
         val title: String,
-        val iconUrl: String,
+        val thumbnailUrl: String,
         val startTime: String,
-        val viewers: Int
+        val currentViewers: Int,
+        val channelName: String,
+        val channelIconUrl: String
 )

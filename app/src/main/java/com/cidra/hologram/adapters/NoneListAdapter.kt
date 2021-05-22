@@ -45,5 +45,5 @@ class NoneListAdapter(val clickListener: NoneListListener) :
 }
 
 class NoneListListener(val clickListener: (id: String) -> Unit) {
-    fun onClick(item: NoneItem) = clickListener(item.videoID)
+    fun onClick(item: NoneItem) = clickListener(item.videoId)
 }

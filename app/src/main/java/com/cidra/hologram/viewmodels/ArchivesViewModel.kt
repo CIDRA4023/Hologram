@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cidra.hologram.api.YoutubeService
+import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.NoneItem
 import kotlinx.coroutines.launch
 
@@ -15,9 +15,9 @@ class ArchivesViewModel : ViewModel() {
     val response: LiveData<List<NoneItem>>
         get() = _response
 
-    private val _status = MutableLiveData<YoutubeApiStatus>()
+    private val _status = MutableLiveData<NetworkStatus>()
 
-    val status: LiveData<YoutubeApiStatus>
+    val status: LiveData<NetworkStatus>
         get() = _status
 
     private val _isLoading = MutableLiveData<Boolean>()
@@ -33,13 +33,13 @@ class ArchivesViewModel : ViewModel() {
 
     private fun loadVideo() {
         viewModelScope.launch {
-            _status.value = YoutubeApiStatus.LOADING
+            _status.value = NetworkStatus.LOADING
             try {
-                videoList = YoutubeService.getArchiveItem()
+                videoList = FirebaseService.getNoneItem()
                 _response.value = videoList
-                _status.value = YoutubeApiStatus.DONE
+                _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
-                _status.value = YoutubeApiStatus.ERROR
+                _status.value = NetworkStatus.ERROR
                 _response.value = ArrayList()
             }
         }
@@ -50,7 +50,7 @@ class ArchivesViewModel : ViewModel() {
      */
     fun refresh() {
         viewModelScope.launch {
-            videoList = YoutubeService.getArchiveItem()
+            videoList = FirebaseService.getNoneItem()
             _response.value = videoList
             _isLoading.value = false
         }

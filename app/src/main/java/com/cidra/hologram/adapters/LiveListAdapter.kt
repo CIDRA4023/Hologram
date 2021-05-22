@@ -47,5 +47,5 @@ class LiveListAdapter(val clickListener: LiveListListener) :
 }
 
 class LiveListListener(val clickListener: (id: String) -> Unit) {
-    fun onClick(item: LiveItem) = clickListener(item.videoID)
+    fun onClick(item: LiveItem) = clickListener(item.videoId)
 }

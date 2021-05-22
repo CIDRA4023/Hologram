@@ -1,14 +1,15 @@
 package com.cidra.hologram.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cidra.hologram.api.YoutubeService
+import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.LiveItem
 import kotlinx.coroutines.launch
 
-enum class YoutubeApiStatus { LOADING, ERROR, DONE }
+enum class NetworkStatus { LOADING, ERROR, DONE }
 
 class LiveViewModel : ViewModel() {
 
@@ -18,9 +19,9 @@ class LiveViewModel : ViewModel() {
     val response: LiveData<List<LiveItem>>
         get() = _response
 
-    private val _status = MutableLiveData<YoutubeApiStatus>()
+    private val _status = MutableLiveData<NetworkStatus>()
 
-    val status: LiveData<YoutubeApiStatus>
+    val status: LiveData<NetworkStatus>
         get() = _status
 
     private val _isLoading = MutableLiveData<Boolean>()
@@ -36,13 +37,17 @@ class LiveViewModel : ViewModel() {
 
     private fun loadVideo() {
         viewModelScope.launch {
-            _status.value = YoutubeApiStatus.LOADING
+            _status.value = NetworkStatus.LOADING
             try {
-                videoList = YoutubeService.getLiveItem()
+
+//                FirebaseService.getLiveItem()
+                Log.i("ItemCount", "a")
+                videoList = FirebaseService.getLiveItem()
+                Log.i("ItemCount", "${videoList.size}")
                 _response.value = videoList
-                _status.value = YoutubeApiStatus.DONE
+                _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
-                _status.value = YoutubeApiStatus.ERROR
+                _status.value = NetworkStatus.ERROR
                 _response.value = ArrayList()
             }
         }
@@ -53,7 +58,8 @@ class LiveViewModel : ViewModel() {
      */
     fun refresh() {
         viewModelScope.launch {
-            videoList = YoutubeService.getLiveItem()
+            FirebaseService.getLiveItem()
+            videoList = FirebaseService.getLiveItem()
             _response.value = videoList
             _isLoading.value = false
         }
@@ -63,7 +69,7 @@ class LiveViewModel : ViewModel() {
      * fab並び替え処理
      */
     fun sortByViewer() {
-        val sortedVideoList = videoList.sortedByDescending { it.viewers }
+        val sortedVideoList = videoList.sortedByDescending { it.currentViewers }
         _response.value = sortedVideoList
     }
 

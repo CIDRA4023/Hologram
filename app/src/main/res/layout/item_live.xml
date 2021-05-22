@@ -71,7 +71,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
-                    app:iconUrl="@{item.iconUrl}"
+                    app:iconUrl="@{item.channelIconUrl}"
                     app:layout_constraintStart_toStartOf="@+id/left_well"
                     app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
                     tools:srcCompat="@tools:sample/avatars" />
@@ -124,7 +124,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
-                    app:currentViewerFormat="@{item.viewers}"
+                    app:currentViewerFormat="@{item.currentViewers}"
                     app:layout_constraintStart_toEndOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     tools:text="10000" />

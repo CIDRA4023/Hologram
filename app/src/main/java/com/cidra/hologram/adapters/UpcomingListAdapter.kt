@@ -27,11 +27,11 @@ sealed class ListItem {
     }
 
     class TodayItem(val today: UpcomingItem) : ListItem() {
-        override val id = today.videoID
+        override val id = today.videoId
     }
 
     class TomorrowItem(val tomorrow: UpcomingItem) : ListItem() {
-        override val id = tomorrow.videoID
+        override val id = tomorrow.videoId
     }
 
     abstract val id: String
@@ -166,7 +166,7 @@ class UpcomingListAdapter(
 }
 
 class UpcomingListListener(val clickListener: (id: String) -> Unit) {
-    fun onClick(item: UpcomingItem) = clickListener(item.videoID)
+    fun onClick(item: UpcomingItem) = clickListener(item.videoId)
 }
 
 

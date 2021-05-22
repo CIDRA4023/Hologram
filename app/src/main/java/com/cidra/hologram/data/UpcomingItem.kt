@@ -1,9 +1,10 @@
 package com.cidra.hologram.data
 
 data class UpcomingItem(
-    val videoID: String,
+    val videoId: String,
     val title: String,
     val thumbnailUrl: String,
-    val iconUrl: String,
-    val startTime: String
+    val scheduledStartTime: String,
+    val channelName: String,
+    val channelIconUrl: String
 )
