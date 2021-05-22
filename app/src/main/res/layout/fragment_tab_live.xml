@@ -23,7 +23,7 @@
             android:id="@+id/status_image"
             android:layout_width="144dp"
             android:layout_height="144dp"
-            app:YoutubeStatus="@{viewModel.status}"
+            app:LoadingStatus="@{viewModel.status}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

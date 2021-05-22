@@ -1,6 +1,5 @@
 package com.cidra.hologram
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -46,52 +45,53 @@ fun bindLRecyclerView(recyclerView: RecyclerView, data: List<LiveItem>?) {
     adapter.submitList(data)
 }
 
-
 @BindingAdapter("ArchivesListData")
 fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
     val adapter = recyclerView.adapter as NoneListAdapter
     adapter.submitList(data)
 }
 
-@BindingAdapter("timeFormat")
+
+@BindingAdapter("liveStartTimeFormat")
 fun TextView.bindLText(item: String?) {
+
+    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone("UTC")
+    val sdf2 = SimpleDateFormat("HH時 mm分", Locale.getDefault())
+
     item?.let {
-        val today = Date()
-        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-        sdf.timeZone = TimeZone.getTimeZone("UTC")
-        val sdf2 = SimpleDateFormat("HH時mm分")
-        val sdf3 = SimpleDateFormat("dd日HH時mm分")
-        val dateObject = sdf.parse(item)
-
-        text = sdf2.format(dateObject)
-
+        val dateObject = sdf.parse(it)
+        text = sdf2.format(dateObject!!)
     }
+
 }
 
-@BindingAdapter("scheduleFormat")
+@BindingAdapter("scheduleStartTimeFormat")
 fun TextView.bindSText(item: String?) {
+
+    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone("UTC")
+    val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
+
     item?.let {
-        val today = Date()
-        val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-        sdf.timeZone = TimeZone.getTimeZone("UTC")
-        val sdf2 = SimpleDateFormat("HH:mm")
-        val dateObject = sdf.parse(item)
-
-        text = sdf2.format(dateObject)
-
+        val dateObject = sdf.parse(it)
+        text = sdf2.format(dateObject!!)
     }
+
 }
 
 @BindingAdapter("currentViewerFormat")
 fun TextView.currentViewerFormat(count: String) {
+
     return when (count.length) {
         0, 1, 2, 3, 4 -> text = count.plus(" 人視聴中")
         5, 6 -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
         else -> text = count
     }
+
 }
 
-@BindingAdapter("viewerFormat")
+@BindingAdapter("viewCountFormat")
 fun TextView.viewerFormat(count: Int) {
     return when (count.toString().length) {
         0, 1, 2, 3, 4 -> text = count.toString().plus(" 回再生")
@@ -103,7 +103,7 @@ fun TextView.viewerFormat(count: Int) {
 /**
  *
  */
-@BindingAdapter("YoutubeStatus")
+@BindingAdapter("LoadingStatus")
 fun bindStatus(statusImageView: ImageView, status: NetworkStatus?) {
     when (status) {
         NetworkStatus.LOADING -> {

@@ -103,7 +103,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/channel_icon"
                     app:layout_constraintTop_toBottomOf="@+id/title"
-                    app:timeFormat="@{item.startTime}"
+                    app:liveStartTimeFormat="@{item.startTime}"
                     tools:text="HH：mm" />
 
                 <TextView
