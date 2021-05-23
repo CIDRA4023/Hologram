@@ -1,5 +1,6 @@
 package com.cidra.hologram.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,6 +40,7 @@ class ArchivesViewModel : ViewModel() {
                 _response.value = videoList
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
+                Log.e("NoneViewModel", "${e.message}")
                 _status.value = NetworkStatus.ERROR
                 _response.value = ArrayList()
             }
