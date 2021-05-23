@@ -22,9 +22,7 @@ object FirebaseService {
             val videoItems = ref.orderByChild("eventType").equalTo("live").get()
             videoItems.addOnSuccessListener { dataSnapshot ->
                 dataSnapshot.children.forEach {
-                    Log.i("TAG", "${it.child("title").value}")
-                    Log.i("TAG", it.key.toString())
-                    Log.i("TAG", "${it.child("currentViewers").value}")
+                    Log.i("videoId_live", it.key.toString())
                     val singleItem = LiveItem(
                         it.key.toString(),
                         it.child("title").value.toString(),
@@ -39,7 +37,7 @@ object FirebaseService {
                 videoItemList.sortBy { it.startTime }
                 continuation.resume(videoItemList)
             }.addOnFailureListener {
-                Log.e("TAG", "Error getting data", it)
+                Log.e("firebase_live", "${it.message}")
             }
         }
     }
@@ -67,7 +65,7 @@ object FirebaseService {
                 videoItemList.sortBy { it.scheduledStartTime }
                 continuation.resume(videoItemList)
             }.addOnFailureListener {
-                Log.e("TAG", "Error getting data", it)
+                Log.e("firebase_upcoming", "${it.message}")
             }
         }
     }
@@ -99,7 +97,7 @@ object FirebaseService {
                 videoItemList.sortByDescending { it.publishedAt }
                 continuation.resume(videoItemList)
             }.addOnFailureListener {
-                Log.e("TAG", "Error getting data", it)
+                Log.e("firebase_none", "${it.message}")
             }
         }
     }

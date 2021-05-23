@@ -59,8 +59,8 @@ class ScheduleViewModel : ViewModel() {
                 Log.i("filterTomorrowList", "${_tomorrowItem.value}")
 
             } catch (e: Exception) {
+                Log.e("ScheduleViewModel", "${e.message}")
                 _status.value = NetworkStatus.ERROR
-//                _response.value = ArrayList()
                 _todayItem.value = ArrayList()
                 _tomorrowItem.value = ArrayList()
             }

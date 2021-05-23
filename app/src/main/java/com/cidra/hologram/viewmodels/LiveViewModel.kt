@@ -47,6 +47,7 @@ class LiveViewModel : ViewModel() {
                 _response.value = videoList
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
+                Log.e("LiveViewModel", "${e.message}")
                 _status.value = NetworkStatus.ERROR
                 _response.value = ArrayList()
             }
