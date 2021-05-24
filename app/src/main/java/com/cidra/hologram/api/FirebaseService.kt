@@ -34,7 +34,7 @@ object FirebaseService {
                     )
                     videoItemList.add(singleItem)
                 }
-                videoItemList.sortBy { it.startTime }
+                videoItemList.sortByDescending { it.startTime }
                 continuation.resume(videoItemList)
             }.addOnFailureListener {
                 Log.e("firebase_live", "${it.message}")
