@@ -70,7 +70,7 @@ class LiveViewModel : ViewModel() {
      * fab並び替え処理
      */
     fun sortByViewer() {
-        val sortedVideoList = videoList.sortedByDescending { it.currentViewers }
+        val sortedVideoList = videoList.sortedByDescending { it.currentViewers.toInt()}
         _response.value = sortedVideoList
     }
 
