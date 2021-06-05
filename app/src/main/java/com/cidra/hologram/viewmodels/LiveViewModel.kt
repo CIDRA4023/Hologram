@@ -9,7 +9,7 @@ import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.LiveItem
 import kotlinx.coroutines.launch
 
-enum class NetworkStatus { LOADING, ERROR, DONE }
+enum class NetworkStatus { LOADING, ERROR, DONE, NONE}
 
 class LiveViewModel : ViewModel() {
 
@@ -40,12 +40,18 @@ class LiveViewModel : ViewModel() {
             _status.value = NetworkStatus.LOADING
             try {
 
-//                FirebaseService.getLiveItem()
-                Log.i("ItemCount", "a")
                 videoList = FirebaseService.getLiveItem()
                 Log.i("ItemCount", "${videoList.size}")
                 _response.value = videoList
-                _status.value = NetworkStatus.DONE
+
+                // 配信アイテムがなかった時
+                if(videoList.isEmpty()) {
+                    _status.value = NetworkStatus.NONE
+                    Log.i("NetworkStatus", "None")
+                } else {
+                    _status.value = NetworkStatus.DONE
+                }
+
             } catch (e: Exception) {
                 Log.e("LiveViewModel", "${e.message}")
                 _status.value = NetworkStatus.ERROR

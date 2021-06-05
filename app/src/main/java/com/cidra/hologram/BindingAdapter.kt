@@ -104,7 +104,7 @@ fun TextView.viewerFormat(count: Int) {
  *
  */
 @BindingAdapter("LoadingStatus")
-fun bindStatus(statusImageView: ImageView, status: NetworkStatus?) {
+fun bindStatusImage(statusImageView: ImageView, status: NetworkStatus?) {
     when (status) {
         NetworkStatus.LOADING -> {
             statusImageView.visibility = View.VISIBLE
@@ -116,6 +116,18 @@ fun bindStatus(statusImageView: ImageView, status: NetworkStatus?) {
         }
         NetworkStatus.DONE -> {
             statusImageView.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("LoadingStatusText")
+fun bindStatusText(statusTextView: TextView, status: NetworkStatus?) {
+    when (status) {
+        NetworkStatus.NONE -> {
+            statusTextView.text = "配信中のアイテムはありません"
+        }
+        NetworkStatus.DONE -> {
+            statusTextView.visibility = View.GONE
         }
     }
 }
