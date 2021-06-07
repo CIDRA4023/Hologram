@@ -114,7 +114,7 @@ fun bindStatusImage(statusImageView: ImageView, status: NetworkStatus?) {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
-        NetworkStatus.DONE -> {
+        NetworkStatus.DONE, NetworkStatus.NONE -> {
             statusImageView.visibility = View.GONE
         }
     }
