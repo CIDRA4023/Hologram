@@ -1,5 +1,6 @@
 package com.cidra.hologram.utilities
 
+import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,6 +36,15 @@ fun yesterday(): Date {
     val cal = Calendar.getInstance()
     cal.time = today
     cal.add(Calendar.DAY_OF_MONTH, -1)
+    return cal.time
+}
+
+fun dateAgo(amount: Int): Date {
+    val today = Date()
+    val cal = Calendar.getInstance()
+    cal.time = today
+    cal.add(Calendar.DAY_OF_MONTH, amount)
+    Log.i("date", cal.time.toString())
     return cal.time
 }
 

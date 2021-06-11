@@ -28,28 +28,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/SwipeRefresh_live"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:onRefreshListener="@{viewModel::refresh}"
-            app:refreshing="@{viewModel.isLoading}">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/video_list"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                app:ArchivesListData="@{viewModel.response}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_archives" />
-
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
@@ -175,6 +153,144 @@
             app:fabCustomSize="72dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/SwipeRefresh_live"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/chip_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onRefreshListener="@{viewModel::refresh}"
+            app:refreshing="@{viewModel.isLoading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/video_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:ArchivesListData="@{viewModel.response}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/chip_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_archives" />
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <View
+            android:id="@+id/chip_background"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:background="@color/primaryDarkColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="@+id/chip_background">
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:chipSpacingHorizontal="8dp"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_today"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="今日"
+                    tools:text="今日"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_yesterday"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="昨日"
+                    tools:text="昨日"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_2days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="6"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_3days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="5"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_4days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="4"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_5days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="3"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_6days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="2"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_ago_7days"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="2"
+                    android:textSize="12sp"
+                    app:chipIconSize="64dp"
+                    app:closeIconSize="64dp" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
 
         <View
             android:id="@+id/archive_overlay"

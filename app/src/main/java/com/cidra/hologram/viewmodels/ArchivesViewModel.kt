@@ -7,7 +7,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.NoneItem
+import com.cidra.hologram.utilities.dateAgo
+import com.cidra.hologram.utilities.sdf
+import com.cidra.hologram.utilities.truncate
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ArchivesViewModel : ViewModel() {
 
@@ -28,6 +33,10 @@ class ArchivesViewModel : ViewModel() {
 
     var videoList = mutableListOf<NoneItem>()
 
+    //
+    private var selectedChip: Int = 0
+
+
     init {
         loadVideo()
     }
@@ -37,7 +46,8 @@ class ArchivesViewModel : ViewModel() {
             _status.value = NetworkStatus.LOADING
             try {
                 videoList = FirebaseService.getNoneItem()
-                _response.value = videoList
+                _response.value =
+                    videoList.filter { truncate(sdf(it.publishedAt)) == truncate(Date()) }
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
                 Log.e("NoneViewModel", "${e.message}")
@@ -53,9 +63,19 @@ class ArchivesViewModel : ViewModel() {
     fun refresh() {
         viewModelScope.launch {
             videoList = FirebaseService.getNoneItem()
-            _response.value = videoList
+            _response.value =
+                videoList.filter { truncate(sdf(it.publishedAt)) == truncate(dateAgo(selectedChip)) }
             _isLoading.value = false
         }
+    }
+
+    /**
+     * チップで選択した値をクエリ
+     */
+    fun filterSelectedChip(date: Date, select: Int) {
+        val filteredVideoList = videoList.filter { truncate(sdf(it.publishedAt)) == truncate(date) }
+        _response.value = filteredVideoList
+        selectedChip = select
     }
 
 
@@ -63,17 +83,23 @@ class ArchivesViewModel : ViewModel() {
      * fab並び替え処理
      */
     fun sorByViewer() {
-        val sortedVideoList = videoList.sortedByDescending { it.viewers }
+        val sortedVideoList =
+            videoList.filter { truncate(sdf(it.publishedAt)) == truncate(dateAgo(selectedChip)) }
+                .sortedByDescending { it.viewers }
         _response.value = sortedVideoList
     }
 
     fun sorByUpdate() {
-        val sortedVideoList = videoList.sortedByDescending { it.publishedAt }
+        val sortedVideoList =
+            videoList.filter { truncate(sdf(it.publishedAt)) == truncate(dateAgo(selectedChip)) }
+                .sortedByDescending { it.publishedAt }
         _response.value = sortedVideoList
     }
 
     fun sorByGood() {
-        val sortedVideoList = videoList.sortedByDescending { it.likeCount }
+        val sortedVideoList =
+            videoList.filter { truncate(sdf(it.publishedAt)) == truncate(dateAgo(selectedChip)) }
+                .sortedByDescending { it.likeCount }
         _response.value = sortedVideoList
     }
 

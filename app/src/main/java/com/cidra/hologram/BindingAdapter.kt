@@ -12,7 +12,9 @@ import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
+import com.cidra.hologram.utilities.dateAgo
 import com.cidra.hologram.viewmodels.NetworkStatus
+import com.google.android.material.chip.Chip
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ceil
@@ -65,6 +67,7 @@ fun TextView.bindLText(item: String?) {
     }
 
 }
+
 
 @BindingAdapter("scheduleStartTimeFormat")
 fun TextView.bindSText(item: String?) {

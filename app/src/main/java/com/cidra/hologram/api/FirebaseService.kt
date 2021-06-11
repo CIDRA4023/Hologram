@@ -8,6 +8,7 @@ import com.cidra.hologram.utilities.sdf
 import com.cidra.hologram.utilities.yesterday
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -70,6 +71,7 @@ object FirebaseService {
         }
     }
 
+
     suspend fun getNoneItem(): MutableList<NoneItem> {
         return suspendCoroutine { continuation ->
             val videoItemList = mutableListOf<NoneItem>()
@@ -90,9 +92,7 @@ object FirebaseService {
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString()
                     )
-                    if (publishedAt.after(yesterday())) {
-                        videoItemList.add(singleItem)
-                    }
+                    videoItemList.add(singleItem)
                 }
                 videoItemList.sortByDescending { it.publishedAt }
                 continuation.resume(videoItemList)
