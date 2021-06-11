@@ -107,25 +107,14 @@
                     tools:text="HH：mm" />
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:text="開始"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/start_time"
-                    app:layout_constraintTop_toBottomOf="@+id/title" />
-
-                <TextView
                     android:id="@+id/current_viewers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
                     app:currentViewerFormat="@{item.currentViewers}"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/start_time"
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     tools:text="10000" />
 
@@ -137,8 +126,10 @@
                     android:onClick="@{() -> clickListener.onClick(item)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

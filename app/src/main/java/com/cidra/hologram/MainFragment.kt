@@ -31,9 +31,9 @@ class MainFragment : Fragment() {
             viewPager2,
             TabLayoutMediator.TabConfigurationStrategy { tab, position ->
                 when (position) {
-                    0 -> tab.text = "Live"
-                    1 -> tab.text = "配信予定"
-                    else -> tab.text = "アーカイブ"
+                    0 -> tab.text = getString(R.string.live)
+                    1 -> tab.text = getString(R.string.Schedule)
+                    else -> tab.text = getString(R.string.Archives)
                 }
             }
         ).attach()

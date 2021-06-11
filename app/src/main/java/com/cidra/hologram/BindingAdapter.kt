@@ -1,5 +1,6 @@
 package com.cidra.hologram
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,9 +13,7 @@ import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
-import com.cidra.hologram.utilities.dateAgo
 import com.cidra.hologram.viewmodels.NetworkStatus
-import com.google.android.material.chip.Chip
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ceil
@@ -56,15 +55,27 @@ fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
 
 @BindingAdapter("liveStartTimeFormat")
 fun TextView.bindLText(item: String?) {
+    val lang = Locale.getDefault().language
 
     val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
     sdf.timeZone = TimeZone.getTimeZone("UTC")
-    val sdf2 = SimpleDateFormat("HH時 mm分", Locale.getDefault())
 
-    item?.let {
-        val dateObject = sdf.parse(it)
-        text = sdf2.format(dateObject!!)
+    if (lang != "ja") {
+        val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
+        item?.let {
+            val dateObject = sdf.parse(it)
+            text = sdf2.format(dateObject!!).plus( " Started")
+        }
+    } else {
+        val sdf2 = SimpleDateFormat("HH時 mm分 開始", Locale.getDefault())
+        item?.let {
+            val dateObject = sdf.parse(it)
+            text = sdf2.format(dateObject!!)
+        }
     }
+
+
+
 
 }
 
@@ -84,21 +95,41 @@ fun TextView.bindSText(item: String?) {
 }
 
 @BindingAdapter("currentViewerFormat")
-fun TextView.currentViewerFormat(count: String) {
-
-    return when (count.length) {
-        0, 1, 2, 3, 4 -> text = count.plus(" 人視聴中")
-        5, 6 -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
-        else -> text = count
+fun currentViewerFormat(cviewerText: TextView, count: String) {
+    val lang = Locale.getDefault().language
+    return if (lang != "ja") {
+        when (count.length) {
+            0, 1, 2, 3 -> cviewerText.text = count.toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
+            4,5,6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
+            7,8,9 -> cviewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_M))
+            else -> cviewerText.text = cviewerText.resources.getString(R.string.current_viewer_premium)
+        }
+    } else {
+        when (count.length) {
+            0, 1, 2, 3, 4 -> cviewerText.text = count.plus(" 人視聴中")
+            5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
+            // プレミアム公開だった時
+            else -> cviewerText.text = count
+        }
     }
-
 }
 
 @BindingAdapter("viewCountFormat")
-fun TextView.viewerFormat(count: Int) {
-    return when (count.toString().length) {
-        0, 1, 2, 3, 4 -> text = count.toString().plus(" 回再生")
-        else -> text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生")
+fun viewerFormat(viewerText: TextView, count: Int) {
+    val lang = Locale.getDefault().language
+    Log.i("lang", lang)
+
+    return if (lang != "ja") {
+        when (count.toString().length) {
+            0, 1, 2, 3 -> viewerText.text = count.toString().plus(viewerText.resources.getString(R.string.view_count_unit))
+            4,5,6 -> viewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString().plus(viewerText.resources.getString(R.string.view_count_unit_K))
+            else -> viewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(viewerText.resources.getString(R.string.view_count_unit_M))
+        }
+    } else {
+        when (count.toString().length) {
+            0, 1, 2, 3, 4 -> viewerText.text =  count.toString().plus(" 回再生")
+            else -> { viewerText.text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生") }
+        }
     }
 }
 
@@ -127,7 +158,7 @@ fun bindStatusImage(statusImageView: ImageView, status: NetworkStatus?) {
 fun bindStatusText(statusTextView: TextView, status: NetworkStatus?) {
     when (status) {
         NetworkStatus.NONE -> {
-            statusTextView.text = "配信中のアイテムはありません"
+            statusTextView.text = statusTextView.resources.getString(R.string.none_item_live)
         }
         NetworkStatus.DONE -> {
             statusTextView.visibility = View.GONE
