@@ -24,6 +24,7 @@ class LiveViewModel : ViewModel() {
     val status: LiveData<NetworkStatus>
         get() = _status
 
+    // SwipeRefresh用のローディングステート
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean>
         get() = _isLoading
@@ -65,10 +66,23 @@ class LiveViewModel : ViewModel() {
      */
     fun refresh() {
         viewModelScope.launch {
-            FirebaseService.getLiveItem()
-            videoList = FirebaseService.getLiveItem()
-            _response.value = videoList
-            _isLoading.value = false
+            try {
+                FirebaseService.getLiveItem()
+                videoList = FirebaseService.getLiveItem()
+                _response.value = videoList
+
+                if (videoList.isEmpty()) {
+                    _status.value = NetworkStatus.NONE
+                } else {
+                    _status.value = NetworkStatus.DONE
+                }
+
+                // 読み込みが終わったらローディングステートを終了
+                _isLoading.value = false
+            } catch (e: Exception) {
+                _status.value = NetworkStatus.ERROR
+                _response.value = ArrayList()
+            }
         }
     }
 
