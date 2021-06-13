@@ -2,14 +2,14 @@
     <string name="app_name">Hologram</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="live">LIVE</string>
-    <string name="Schedule">配信予定</string>
-    <string name="Archives">アーカイブ</string>
+    <string name="tab_live">LIVE</string>
+    <string name="tab_schedule">配信予定</string>
+    <string name="tab_archives">アーカイブ</string>
 
     <string name="none_item_live">配信中のアイテムはありません</string>
 
-    <string name="header_name_today">今日の配信</string>
-    <string name="header_name_tomorrow">明日の配信</string>
+    <string name="schedule_header_today">今日の配信</string>
+    <string name="schedule_header_tomorrow">明日の配信</string>
 
     <string name="fab_title">並び替え</string>
 

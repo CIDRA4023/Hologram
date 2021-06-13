@@ -26,17 +26,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/live" />
+            android:text="@string/tab_live" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Schedule" />
+            android:text="@string/tab_schedule" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Archives" />
+            android:text="@string/tab_archives" />
 
     </com.google.android.material.tabs.TabLayout>
 

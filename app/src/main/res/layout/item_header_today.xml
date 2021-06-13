@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/header_name_today"
+                android:text="@string/schedule_header_today"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 app:layout_constraintStart_toEndOf="@+id/vertical_line_today"
                 app:layout_constraintTop_toTopOf="parent" />

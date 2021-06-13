@@ -2,14 +2,14 @@
     <string name="app_name">Hologram</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="live">LIVE</string>
-    <string name="Schedule">Schedule</string>
-    <string name="Archives">Archives</string>
+    <string name="tab_live">LIVE</string>
+    <string name="tab_schedule">Schedule</string>
+    <string name="tab_archives">Archives</string>
 
     <string name="none_item_live">No Live Streaming</string>
 
-    <string name="header_name_today">Today</string>
-    <string name="header_name_tomorrow">Tomorrow</string>
+    <string name="schedule_header_today">Today</string>
+    <string name="schedule_header_tomorrow">Tomorrow</string>
 
     <string name="fab_title">SORT BY</string>
 
