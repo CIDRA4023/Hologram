@@ -67,7 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:imgUrl="@{item.thumbnailUrl}"
+            app:imgAUrl="@{item.thumbnailUrl}"
             app:layout_constraintBottom_toTopOf="@+id/bottom_well"
             app:layout_constraintDimensionRatio="h,16:9"
             app:layout_constraintEnd_toStartOf="@+id/center_well"

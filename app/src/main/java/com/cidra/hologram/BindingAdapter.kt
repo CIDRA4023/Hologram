@@ -29,6 +29,20 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         .into(imgView)
 }
 
+/**
+ * Archivesのサムネイル読み込み用
+ * 配信済み動画のサムネイルは頻繁に変更されることはないため
+ * Glideにてキャッシュを保存しておく
+ */
+@BindingAdapter("imgAUrl")
+fun bindArchiveImage(imgView: ImageView, imgUrl: String?) {
+
+    Glide.with(imgView.context)
+        .load(imgUrl)
+        .apply(RequestOptions().placeholder(R.drawable.loading_animation))
+        .into(imgView)
+}
+
 @BindingAdapter("iconUrl")
 fun bindIconImage(imgView: ImageView, imgUrl: String?) {
 

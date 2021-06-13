@@ -192,15 +192,17 @@
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="@+id/chip_background"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chip_background">
 
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:chipSpacingHorizontal="8dp"
                 app:singleLine="true"
                 app:singleSelection="true">
@@ -212,10 +214,11 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/chip_text_today_archives"
-                    tools:text="今日"
-                    android:textSize="12sp"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="今日" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_yesterday"
@@ -223,70 +226,77 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/chip_text_yesterday_archives"
-                    tools:text="昨日"
-                    android:textSize="12sp"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="昨日" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_2days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="6"
-                    android:textSize="12sp"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="06" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_3days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="5"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="05"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_4days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="4"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="04"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_5days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="3"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="03"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_6days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="2"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="02"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_ago_7days"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="2"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:chipIconSize="64dp"
-                    app:closeIconSize="64dp" />
+                    app:closeIconSize="64dp"
+                    tools:text="01"
+                    android:textAppearance="@android:style/TextAppearance.Material.Body2"/>
 
 
             </com.google.android.material.chip.ChipGroup>
