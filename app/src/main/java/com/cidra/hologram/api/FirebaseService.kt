@@ -90,7 +90,8 @@ object FirebaseService {
                         it.child("viewCount").value.toString().toInt(),
                         it.child("likeCount").value.toString().toInt(),
                         it.child("channelName").value.toString(),
-                        it.child("channelIconUrl").value.toString()
+                        it.child("channelIconUrl").value.toString(),
+                        it.child("duration").value.toString()
                     )
                     videoItemList.add(singleItem)
                 }

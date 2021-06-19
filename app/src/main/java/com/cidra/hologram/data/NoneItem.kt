@@ -8,5 +8,6 @@ data class NoneItem(
     val viewers: Int,
     val likeCount: Int,
     val channelName: String,
-    val channelIconUrl: String
+    val channelIconUrl: String,
+    val duration: String
 )

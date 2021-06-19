@@ -71,8 +71,10 @@
             app:layout_constraintBottom_toTopOf="@+id/bottom_well"
             app:layout_constraintDimensionRatio="h,16:9"
             app:layout_constraintEnd_toStartOf="@+id/center_well"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/left_well"
             app:layout_constraintTop_toTopOf="@+id/top_well"
+            app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <LinearLayout
@@ -155,6 +157,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#AF000000"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
+            app:layout_constraintEnd_toStartOf="@+id/center_well"
+            app:videoDuration="@{item.duration}"
+            tools:text="HH:mm:ss" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

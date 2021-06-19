@@ -87,10 +87,69 @@ fun TextView.bindLText(item: String?) {
             text = sdf2.format(dateObject!!)
         }
     }
+}
 
+@BindingAdapter("videoDuration")
+fun bindDurationText(durationText: TextView, duration: String?) {
+    // 再生時間のパターン
+    val sdfDurationSS = SimpleDateFormat("'PT'ss'S'", Locale.getDefault())
+    val sdfDurationMM = SimpleDateFormat("'PT'mm'M'", Locale.getDefault())
+    val sdfDurationMMSS = SimpleDateFormat("'PT'mm'M'ss'S'", Locale.getDefault())
+    val sdfDurationHH = SimpleDateFormat("'PT'HH'H'", Locale.getDefault())
+    val sdfDurationHHSS = SimpleDateFormat("'PT'HH'H'ss'S'", Locale.getDefault())
+    val sdfDurationHHMM = SimpleDateFormat("'PT'HH'H'mm'M'", Locale.getDefault())
+    val sdfDurationHHMMSS = SimpleDateFormat("'PT'HH'H'mm'M'ss'S'", Locale.getDefault())
 
+    // 表示再生時間
+    val setTextMMSS = SimpleDateFormat("mm:ss", Locale.getDefault())
+    val setTextHHMMSS = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+    Log.i("duration", duration!!)
+    duration?.let {
+        val isMatchedH = Regex("H").containsMatchIn(it)
+        val isMatchedM = Regex("M").containsMatchIn(it)
+        val isMatchedS = Regex("S").containsMatchIn(it)
 
+        /**
+         * 再生時間で条件分岐
+         */
+        when {
+            // 1時間以上の再生時間があるとき
+            isMatchedH -> {
+                Log.i("duration", "HMS")
+                if (isMatchedM && isMatchedS) {
+                    val durationObject = sdfDurationHHMMSS.parse(it)
+                    durationText.text = setTextHHMMSS.format(durationObject!!)
+                } else if (isMatchedH && isMatchedM) {
+                    val durationObject = sdfDurationHHMM.parse(it)
+                    durationText.text = setTextHHMMSS.format(durationObject!!)
+                } else if (isMatchedH && isMatchedS) {
+                    val durationObject = sdfDurationHHSS.parse(it)
+                    durationText.text = setTextHHMMSS.format(durationObject!!)
+                } else {
+                    val durationObject = sdfDurationHH.parse(it)
+                    durationText.text = setTextHHMMSS.format(durationObject!!)
+                }
+            }
+            // 1時間未満で1分以上再生時間があるとき
+            isMatchedM -> {
+                Log.i("duration", "MS")
+                if (isMatchedM && isMatchedS) {
+                    val durationObject = sdfDurationMMSS.parse(it)
+                    durationText.text = setTextMMSS.format(durationObject!!)
+                } else {
+                    val durationObject = sdfDurationMM.parse(it)
+                    durationText.text = setTextMMSS.format(durationObject!!)
+                }
+            }
+            // 1分未満で1秒以上再生時間があるとき
+            isMatchedS -> {
+                Log.i("duration", "S")
+                val durationObject = sdfDurationSS.parse(it)
+                durationText.text = setTextMMSS.format(durationObject!!)
+            }
 
+        }
+    }
 }
 
 
