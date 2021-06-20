@@ -14,6 +14,8 @@
     <string name="fab_title">SORT BY</string>
 
     <string name="start_text">Started streaming</string>
+    <string name="relative_time_start_stream_prefix">Started .</string>
+    <string name="relative_time_start_stream_suffix" />
     <string name="current_viewer_count_unit">watching</string>
     <string name="current_viewer_count_unit_K">K watching</string>
     <string name="current_viewer_count_unit_M">M watching</string>

@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.databinding.BindingMethod
+import androidx.databinding.BindingMethods
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -14,6 +16,7 @@ import com.cidra.hologram.adapters.NoneListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
 import com.cidra.hologram.viewmodels.NetworkStatus
+import com.github.curioustechizen.ago.RelativeTimeTextView
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ceil
@@ -87,6 +90,23 @@ fun TextView.bindLText(item: String?) {
             text = sdf2.format(dateObject!!)
         }
     }
+}
+
+
+
+@BindingAdapter("relativeTime")
+fun bindRelativeText(relativeText: RelativeTimeTextView, time: String?) {
+
+    val lang = Locale.getDefault().language
+    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    sdf.timeZone = TimeZone.getTimeZone("UTC")
+    val dateObject = sdf.parse(time).time
+
+    val now = Date().time
+    val relativeTime = now - dateObject
+
+    relativeText.setReferenceTime(now - relativeTime)
+
 }
 
 @BindingAdapter("videoDuration")
