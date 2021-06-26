@@ -194,7 +194,9 @@ fun currentViewerFormat(cviewerText: TextView, count: String) {
         when (count.length) {
             0, 1, 2, 3 -> cviewerText.text = count.toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
             4,5,6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
-            7,8,9 -> cviewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_M))
+            // 視聴者数100万人以上はめったにないので暫定的にコメントアウト
+            // 理想はプレミアム公開とライブ配信で条件分岐できるようフラグを付与する
+//            7,8,9 -> cviewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_M))
             else -> cviewerText.text = cviewerText.resources.getString(R.string.current_viewer_premium)
         }
     } else {
