@@ -35,8 +35,8 @@ android {
         applicationId "com.cidra.Hologram"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 20400
-        versionName "2.4"
+        versionCode 20402
+        versionName "2.4.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = ["YOUTUBE_API_KEY": envProps.YOUTUBE_API_KEY]

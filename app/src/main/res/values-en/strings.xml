@@ -19,7 +19,7 @@
     <string name="current_viewer_count_unit">watching</string>
     <string name="current_viewer_count_unit_K">K watching</string>
     <string name="current_viewer_count_unit_M">M watching</string>
-    <string name="current_viewer_premium">Premium</string>
+    <string name="current_viewer_premium">Premieres</string>
     <string name="view_count_unit">views</string>
 
     <string name="view_count_unit_K">K views</string>
@@ -34,6 +34,9 @@
 
     <string name="chip_text_today_archives">Today</string>
     <string name="chip_text_yesterday_archives">Yesterday</string>
+
+    <string name="policy">Privacy Policy</string>
+    <string name="terms">Terms of Use</string>
 
 
 </resources>

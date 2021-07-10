@@ -35,5 +35,8 @@
     <string name="chip_text_today_archives">今日</string>
     <string name="chip_text_yesterday_archives">昨日</string>
 
+    <string name="policy">プライバシーポリシー</string>
+    <string name="terms">利用規約</string>
+
 
 </resources>
