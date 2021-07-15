@@ -13,7 +13,7 @@ Link to Terms and Conditions of third party service providers used by the app
 *   [Google Play Services](https://policies.google.com/terms)
 *   [Google Analytics for Firebase](https://firebase.google.com/terms/analytics)
 *   [Firebase Crashlytics](https://firebase.google.com/terms/crashlytics)
-*   [YouTube API Services](https://developers.google.com/youtube/terms/developer-policies#a.-api-client-terms-of-use-and-privacy-policies)
+*   [YouTube Terms of Services](https://www.youtube.com/t/terms)
 
 You should be aware that there are certain things that will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi, or provided by your mobile network provider, but cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.
 
