@@ -1,9 +1,9 @@
 package com.cidra.hologram
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.cidra.hologram.adapters.TabAdapter
@@ -41,4 +41,37 @@ class MainFragment : Fragment() {
         return view
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        activity?.setTitle(R.string.app_name)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.item_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            // プライバシーポリシー
+            R.id.policy -> {
+                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
+                val intentPolicy = Intent(Intent.ACTION_VIEW)
+                intentPolicy.data = Uri.parse(policyUrl)
+                startActivity(intentPolicy)
+            }
+            // 利用規約
+            R.id.terms -> {
+                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
+                val intentTerms = Intent(Intent.ACTION_VIEW)
+                intentTerms.data = Uri.parse(termsUrl)
+                startActivity(intentTerms)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }
+
