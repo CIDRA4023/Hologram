@@ -26,6 +26,7 @@
                 android:padding="8dp"
                 android:text="@string/schedule_header_today"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/vertical_line_today"
                 app:layout_constraintTop_toTopOf="parent" />
 

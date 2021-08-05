@@ -6,5 +6,6 @@ data class UpcomingItem(
     val thumbnailUrl: String,
     val scheduledStartTime: String,
     val channelName: String,
-    val channelIconUrl: String
+    val channelIconUrl: String,
+    val tagList: List<String>
 )

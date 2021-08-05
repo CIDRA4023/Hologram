@@ -1,12 +1,13 @@
 package com.cidra.hologram
 
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.databinding.BindingMethod
-import androidx.databinding.BindingMethods
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -15,6 +16,7 @@ import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
+import com.cidra.hologram.databinding.LayoutChipBinding
 import com.cidra.hologram.viewmodels.NetworkStatus
 import com.github.curioustechizen.ago.RelativeTimeTextView
 import java.text.SimpleDateFormat
@@ -81,7 +83,7 @@ fun TextView.bindLText(item: String?) {
         val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
         item?.let {
             val dateObject = sdf.parse(it)
-            text = sdf2.format(dateObject!!).plus( " Started")
+            text = sdf2.format(dateObject!!).plus(" Started")
         }
     } else {
         val sdf2 = SimpleDateFormat("HH時 mm分 開始", Locale.getDefault())
@@ -91,7 +93,6 @@ fun TextView.bindLText(item: String?) {
         }
     }
 }
-
 
 
 @BindingAdapter("relativeTime")
@@ -192,17 +193,21 @@ fun currentViewerFormat(cviewerText: TextView, count: String) {
     val lang = Locale.getDefault().language
     return if (lang != "ja") {
         when (count.length) {
-            0, 1, 2, 3 -> cviewerText.text = count.toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
-            4,5,6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
+            0, 1, 2, 3 -> cviewerText.text = count.toString()
+                .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
+            4, 5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
+                .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
             // 視聴者数100万人以上はめったにないので暫定的にコメントアウト
             // 理想はプレミアム公開とライブ配信で条件分岐できるようフラグを付与する
 //            7,8,9 -> cviewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_M))
-            else -> cviewerText.text = cviewerText.resources.getString(R.string.current_viewer_premium)
+            else -> cviewerText.text =
+                cviewerText.resources.getString(R.string.current_viewer_premium)
         }
     } else {
         when (count.length) {
             0, 1, 2, 3, 4 -> cviewerText.text = count.plus(" 人視聴中")
-            5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
+            5, 6 -> cviewerText.text =
+                (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
             // プレミアム公開だった時
             else -> cviewerText.text = count
         }
@@ -216,14 +221,19 @@ fun viewerFormat(viewerText: TextView, count: Int) {
 
     return if (lang != "ja") {
         when (count.toString().length) {
-            0, 1, 2, 3 -> viewerText.text = count.toString().plus(viewerText.resources.getString(R.string.view_count_unit))
-            4,5,6 -> viewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString().plus(viewerText.resources.getString(R.string.view_count_unit_K))
-            else -> viewerText.text = (ceil(count.toDouble() / 100000) / 10).toString().plus(viewerText.resources.getString(R.string.view_count_unit_M))
+            0, 1, 2, 3 -> viewerText.text =
+                count.toString().plus(viewerText.resources.getString(R.string.view_count_unit))
+            4, 5, 6 -> viewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
+                .plus(viewerText.resources.getString(R.string.view_count_unit_K))
+            else -> viewerText.text = (ceil(count.toDouble() / 100000) / 10).toString()
+                .plus(viewerText.resources.getString(R.string.view_count_unit_M))
         }
     } else {
         when (count.toString().length) {
-            0, 1, 2, 3, 4 -> viewerText.text =  count.toString().plus(" 回再生")
-            else -> { viewerText.text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生") }
+            0, 1, 2, 3, 4 -> viewerText.text = count.toString().plus(" 回再生")
+            else -> {
+                viewerText.text = (ceil(count.toDouble() / 1000) / 10).toString().plus("万 回再生")
+            }
         }
     }
 }
@@ -260,4 +270,98 @@ fun bindStatusText(statusTextView: TextView, status: NetworkStatus?) {
         }
     }
 }
+
+@BindingAdapter("addChip")
+fun bindAddChip(parent: ViewGroup, tag: List<String>) {
+    val lang = Locale.getDefault().language
+
+    // このメソッドが呼ばれるたびにチップを削除する
+    parent.removeAllViews()
+
+    tag.forEach {
+        if (it != "null") {
+            val bindingChip = DataBindingUtil.inflate<LayoutChipBinding>(
+                LayoutInflater.from(parent.context),
+                R.layout.layout_chip,
+                parent,
+                false
+            )
+
+            val chipText = when (it) {
+                "game" -> if (lang != "ja") "Game" else "ゲーム"
+                "sing" -> if (lang != "ja") "Sing" else "歌枠"
+                "live" -> if (lang != "ja") "LIVE" else "LIVE"
+                "chat" -> if (lang != "ja") "Chat" else "雑談"
+                "birthday" -> if (lang != "ja") "Birthday" else "生誕祭"
+                "song" -> if (lang != "ja") "Original Song" else "オリジナル曲"
+                "drawing" -> if (lang != "ja") "Drawing" else "お絵かき"
+                "watchAlong" -> if (lang != "ja") "Watch Along" else "同時視聴"
+                "cover" -> if (lang != "ja") "Cover" else "歌ってみた"
+                "ときのそら" -> "\uD83D\uDC3B $it"
+                "ロボ子" -> "\t\uD83E\uDD16 $it"
+                "さくらみこ" -> "\uD83C\uDF38 $it"
+                "星街すいせい" -> "☄️ $it"
+                "AZKi" -> "⚒️ $it"
+                "夜空メル" -> "\uD83C\uDF1F $it"
+                "アキ・ローゼンタール" -> "\uD83C\uDF4E $it"
+                "赤井はあと" -> "❤️ $it"
+                "白上フブキ" -> "\uD83C\uDF3D $it"
+                "夏色まつり" -> "\uD83C\uDFEE $it"
+                "湊あくあ" -> "⚓️ $it"
+                "紫咲シオン" -> "\uD83C\uDF19 $it"
+                "百鬼あやめ" -> "\uD83D\uDE08 $it"
+                "癒月ちょこ" -> "\uD83D\uDC8B $it"
+                "大空スバル" -> "\uD83D\uDE91 $it"
+                "大神ミオ" -> "\uD83C\uDF32 $it"
+                "猫又おかゆ" -> "\uD83C\uDF59 $it"
+                "戌神ころね" -> "\uD83E\uDD50 $it"
+                "兎田ぺこら" -> "\uD83D\uDC6F\u200D♀️ $it"
+                "潤羽るしあ" -> "\uD83E\uDD8B $it"
+                "不知火フレア" -> "\uD83D\uDD25 $it"
+                "白銀ノエル" -> "⚔️ $it"
+                "宝鐘マリン" -> "\uD83C\uDFF4\u200D $it"
+                "天音かなた" -> "\uD83D\uDCAB $it"
+                "角巻わため" -> "\uD83D\uDC0F $it"
+                "常闇トワ" -> "\uD83D\uDC7E $it"
+                "姫森ルーナ" -> "\uD83C\uDF6C $it"
+                "雪花ラミィ" -> "☃️ $it"
+                "桃鈴ねね" -> "\uD83E\uDD5F $it"
+                "獅白ぼたん" -> "♌️ $it"
+                "尾丸ポルカ" -> "\uD83C\uDFAA $it"
+                "IOFI" -> "\uD83C\uDFA8 $it"
+                "MOONA", "ムーナ" -> "\uD83D\uDD2E Moona"
+                "Risu" -> "\uD83D\uDC3F $it"
+                "Ollie" -> "\uD83E\uDDDF\u200D♀️ $it"
+                "Anya" -> "\uD83C\uDF42 $it"
+                "Reine" -> "\uD83E\uDD9A $it"
+                "Calliope" -> "\uD83D\uDC80 $it"
+                "Kiara" -> "\uD83D\uDC14 $it"
+                "Ina'nis" -> "\uD83D\uDC19 $it"
+                "Gura" -> "\uD83D\uDD31 $it"
+                "Amelia" -> "\uD83D\uDD0E $it"
+                "IRyS" -> "\uD83D\uDC8E $it"
+                else -> it
+            }
+            val chipIcon = when (it) {
+                "game" -> R.drawable.ic_outline_videogame_asset_24
+                "sing", "cover", "song" -> R.drawable.ic_baseline_music_note_24
+                "chat" -> R.drawable.ic_baseline_chat_24
+                "birthday" -> R.drawable.ic_baseline_cake_24
+                "drawing" -> R.drawable.ic_baseline_draw_24
+                else -> null
+            }
+            chipIcon?.let { icon ->
+                bindingChip.chipTag.apply {
+                    chipStartPadding = resources.getDimension(R.dimen.chipPadding)
+                    setChipIconResource(icon)
+                }
+            }
+            bindingChip.chipTag.text = chipText
+
+            parent.addView(bindingChip.root)
+        }
+    }
+
+}
+
 

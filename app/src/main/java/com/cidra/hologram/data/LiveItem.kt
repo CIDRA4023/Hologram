@@ -7,5 +7,6 @@ data class LiveItem(
         val startTime: String,
         val currentViewers: String,
         val channelName: String,
-        val channelIconUrl: String
+        val channelIconUrl: String,
+        val tagList: List<String>
 )
