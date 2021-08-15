@@ -2,14 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<!--    <item-->
+<!--        android:id="@+id/policy"-->
+<!--        android:title="@string/policy"-->
+<!--        app:showAsAction="never" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/terms"-->
+<!--        android:title="@string/terms"-->
+<!--        app:showAsAction="never" />-->
+
     <item
-        android:id="@+id/policy"
-        android:title="@string/policy"
+        android:id="@+id/about_app"
+        android:title="@string/about_app"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/terms"
-        android:title="@string/terms"
+        android:id="@+id/review"
+        android:title="@string/review"
         app:showAsAction="never" />
 
 </menu>

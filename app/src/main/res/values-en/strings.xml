@@ -37,6 +37,14 @@
 
     <string name="policy">Privacy Policy</string>
     <string name="terms">Terms of Use</string>
+    <string name="about_app">About this app</string>
+    <string name="review">Post a review</string>
+    <string name="license">License</string>
+
+    <string name="app_desc_title">What is Hologram?</string>
+    <string name="app_desc">This app allows you to check the distribution status of holo-live Vtubers.</string>
+
+    <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
 
 
 </resources>

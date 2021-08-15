@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hologram</string>
+    <string name="app_name">ホログラム</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_live">LIVE</string>
@@ -37,6 +37,17 @@
 
     <string name="policy">プライバシーポリシー</string>
     <string name="terms">利用規約</string>
+    <string name="about_app">このアプリについて</string>
+    <string name="review">レビューを投稿する</string>
+    <string name="license">ライセンス</string>
+
+    <string name="app_desc_title">ホログラムとは？</string>
+    <string name="app_desc">このアプリはホロライブVtuberの配信状況が確認できるアプリです。</string>
+
+    <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
+
+
+
 
 
 </resources>

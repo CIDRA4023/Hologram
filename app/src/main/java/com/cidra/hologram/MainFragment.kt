@@ -1,10 +1,12 @@
 package com.cidra.hologram
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.cidra.hologram.adapters.TabAdapter
 import com.google.android.material.tabs.TabLayout
@@ -53,19 +55,39 @@ class MainFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            // プライバシーポリシー
-            R.id.policy -> {
-                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
-                val intentPolicy = Intent(Intent.ACTION_VIEW)
-                intentPolicy.data = Uri.parse(policyUrl)
-                startActivity(intentPolicy)
+//            // プライバシーポリシー
+//            R.id.policy -> {
+//                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
+//                val intentPolicy = Intent(Intent.ACTION_VIEW)
+//                intentPolicy.data = Uri.parse(policyUrl)
+//                startActivity(intentPolicy)
+//            }
+//            // 利用規約
+//            R.id.terms -> {
+//                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
+//                val intentTerms = Intent(Intent.ACTION_VIEW)
+//                intentTerms.data = Uri.parse(termsUrl)
+//                startActivity(intentTerms)
+//            }
+            // このアプリについて
+            R.id.about_app -> {
+                findNavController().navigate(R.id.action_mainFragment_to_aboutThisAppFragment)
+
             }
-            // 利用規約
-            R.id.terms -> {
-                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
-                val intentTerms = Intent(Intent.ACTION_VIEW)
-                intentTerms.data = Uri.parse(termsUrl)
-                startActivity(intentTerms)
+            // レビューを投稿する
+            R.id.review -> {
+                val packageName = "com.cidra.Hologram"
+                val uri: Uri = Uri.parse("market://details?id=$packageName")
+                val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                try {
+                    startActivity(goToMarket)
+                } catch (e: ActivityNotFoundException) {
+                    startActivity(Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=$packageName")))
+                }
             }
         }
 
