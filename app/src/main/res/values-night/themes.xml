@@ -28,6 +28,7 @@
 
     <!--  タブレイアウトの設定  -->
     <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@color/black</item>
         <item name="tabIndicatorHeight">3dp</item>
         <item name="tabIndicatorColor">@color/secondaryLightColor</item>
         <item name="tabSelectedTextColor">@color/primaryColor</item>

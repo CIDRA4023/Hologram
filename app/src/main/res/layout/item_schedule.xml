@@ -25,6 +25,7 @@
             android:layout_marginStart="8dp"
             app:cardCornerRadius="24dp"
             app:contentPadding="8dp"
+            app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/stroke_color"
@@ -55,9 +56,9 @@
 
         <View
             android:id="@+id/vertical_line_timeline"
-            android:layout_width="3dp"
+            android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="@color/secondaryLightColor"
+            android:background="@color/stroke_color"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
@@ -73,14 +74,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
             app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/materialCardView2"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/stroke_color"
-            app:strokeWidth="2dp">
+            app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

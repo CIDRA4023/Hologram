@@ -189,6 +189,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
@@ -301,6 +302,7 @@
 
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
+
 
         <View
             android:id="@+id/archive_overlay"

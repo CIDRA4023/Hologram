@@ -297,49 +297,49 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "drawing" -> if (lang != "ja") "Drawing" else "お絵かき"
                 "watchAlong" -> if (lang != "ja") "Watch Along" else "同時視聴"
                 "cover" -> if (lang != "ja") "Cover" else "歌ってみた"
-                "ときのそら" -> "\uD83D\uDC3B $it"
-                "ロボ子" -> "\t\uD83E\uDD16 $it"
-                "さくらみこ" -> "\uD83C\uDF38 $it"
-                "星街すいせい" -> "☄️ $it"
-                "AZKi" -> "⚒️ $it"
-                "夜空メル" -> "\uD83C\uDF1F $it"
-                "アキ・ローゼンタール" -> "\uD83C\uDF4E $it"
-                "赤井はあと" -> "❤️ $it"
-                "白上フブキ" -> "\uD83C\uDF3D $it"
-                "夏色まつり" -> "\uD83C\uDFEE $it"
-                "湊あくあ" -> "⚓️ $it"
-                "紫咲シオン" -> "\uD83C\uDF19 $it"
-                "百鬼あやめ" -> "\uD83D\uDE08 $it"
-                "癒月ちょこ" -> "\uD83D\uDC8B $it"
-                "大空スバル" -> "\uD83D\uDE91 $it"
-                "大神ミオ" -> "\uD83C\uDF32 $it"
-                "猫又おかゆ" -> "\uD83C\uDF59 $it"
-                "戌神ころね" -> "\uD83E\uDD50 $it"
-                "兎田ぺこら" -> "\uD83D\uDC6F\u200D♀️ $it"
-                "潤羽るしあ" -> "\uD83E\uDD8B $it"
-                "不知火フレア" -> "\uD83D\uDD25 $it"
-                "白銀ノエル" -> "⚔️ $it"
-                "宝鐘マリン" -> "\uD83C\uDFF4\u200D $it"
-                "天音かなた" -> "\uD83D\uDCAB $it"
-                "角巻わため" -> "\uD83D\uDC0F $it"
-                "常闇トワ" -> "\uD83D\uDC7E $it"
-                "姫森ルーナ" -> "\uD83C\uDF6C $it"
-                "雪花ラミィ" -> "☃️ $it"
-                "桃鈴ねね" -> "\uD83E\uDD5F $it"
-                "獅白ぼたん" -> "♌️ $it"
-                "尾丸ポルカ" -> "\uD83C\uDFAA $it"
-                "IOFI" -> "\uD83C\uDFA8 $it"
-                "MOONA", "ムーナ" -> "\uD83D\uDD2E Moona"
-                "Risu" -> "\uD83D\uDC3F $it"
-                "Ollie" -> "\uD83E\uDDDF\u200D♀️ $it"
-                "Anya" -> "\uD83C\uDF42 $it"
-                "Reine" -> "\uD83E\uDD9A $it"
-                "Calliope" -> "\uD83D\uDC80 $it"
-                "Kiara" -> "\uD83D\uDC14 $it"
-                "Ina'nis" -> "\uD83D\uDC19 $it"
-                "Gura" -> "\uD83D\uDD31 $it"
-                "Amelia" -> "\uD83D\uDD0E $it"
-                "IRyS" -> "\uD83D\uDC8E $it"
+                "ときのそら" -> it
+                "ロボ子" -> it
+                "さくらみこ" -> it
+                "星街すいせい" -> it
+                "AZKi" -> it
+                "夜空メル" -> it
+                "アキ・ローゼンタール" -> it
+                "赤井はあと" -> it
+                "白上フブキ" -> it
+                "夏色まつり" -> it
+                "湊あくあ" -> it
+                "紫咲シオン" -> it
+                "百鬼あやめ" -> it
+                "癒月ちょこ" -> it
+                "大空スバル" -> it
+                "大神ミオ" -> it
+                "猫又おかゆ" -> it
+                "戌神ころね" -> it
+                "兎田ぺこら" -> it
+                "潤羽るしあ" -> it
+                "不知火フレア" -> it
+                "白銀ノエル" -> it
+                "宝鐘マリン" -> it
+                "天音かなた" -> it
+                "角巻わため" -> it
+                "常闇トワ" -> it
+                "姫森ルーナ" -> it
+                "雪花ラミィ" -> it
+                "桃鈴ねね" -> it
+                "獅白ぼたん" -> it
+                "尾丸ポルカ" -> it
+                "IOFI", "iofi" -> "Iofi"
+                "MOONA", "ムーナ" -> "Moona"
+                "Risu" -> it
+                "Ollie" -> it
+                "Anya" -> it
+                "Reine" -> it
+                "Calliope" -> it
+                "Kiara" -> it
+                "Ina'nis" -> it
+                "Gura" -> it
+                "Amelia" -> it
+                "IRyS" -> it
                 else -> it
             }
             val chipIcon = when (it) {
@@ -348,6 +348,50 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "chat" -> R.drawable.ic_baseline_chat_24
                 "birthday" -> R.drawable.ic_baseline_cake_24
                 "drawing" -> R.drawable.ic_baseline_draw_24
+
+                "ときのそら" -> R.drawable.ic_sora
+                "ロボ子" -> R.drawable.ic_roboko
+                "さくらみこ" -> R.drawable.ic_sakuramiko
+                "星街すいせい" -> R.drawable.ic_suisei
+                "AZKi" -> R.drawable.ic_azuki
+                "夜空メル" -> R.drawable.ic_meru
+                "アキ・ローゼンタール" -> R.drawable.ic_akirose
+                "赤井はあと" -> R.drawable.ic_akaihaato
+                "白上フブキ" -> R.drawable.ic_fubuki
+                "夏色まつり" -> R.drawable.ic_matsuri
+                "湊あくあ" -> R.drawable.ic_aqua
+                "紫咲シオン" -> R.drawable.ic_shion
+                "百鬼あやめ" -> R.drawable.ic_ayame
+                "癒月ちょこ" -> R.drawable.ic_choko
+                "大空スバル" -> R.drawable.ic_subaru
+                "大神ミオ" -> R.drawable.ic_mio
+                "猫又おかゆ" -> R.drawable.ic_okayu
+                "戌神ころね" -> R.drawable.ic_korone
+                "兎田ぺこら" -> R.drawable.ic_pekora
+                "潤羽るしあ" -> R.drawable.ic_rushia
+                "不知火フレア" -> R.drawable.ic_flare
+                "白銀ノエル" -> R.drawable.ic_fubuki
+                "宝鐘マリン" -> R.drawable.ic_houshoumarin
+                "天音かなた" -> R.drawable.ic_amanekanata
+                "角巻わため" -> R.drawable.ic_watame
+                "常闇トワ" -> R.drawable.ic_towa
+                "姫森ルーナ" -> R.drawable.ic_luna
+                "雪花ラミィ" -> R.drawable.ic_ramy
+                "桃鈴ねね" -> R.drawable.ic_nene
+                "獅白ぼたん" -> R.drawable.ic_botan
+                "尾丸ポルカ" -> R.drawable.ic_poruka
+                "IOFI", "Iofi" -> R.drawable.ic_iofi
+                "MOONA", "ムーナ" -> R.drawable.ic_moona
+                "Risu" -> R.drawable.ic_risu
+                "Ollie" -> R.drawable.ic_ollie
+                "Anya" -> R.drawable.ic_anya
+                "Reine" -> R.drawable.ic_reine
+                "Calliope" -> R.drawable.ic_calliope
+                "Kiara" -> R.drawable.ic_takanashikiara
+                "Ina'nis" -> R.drawable.ic_inanis
+                "Gura" -> R.drawable.ic_gura
+                "Amelia" -> R.drawable.ic_ameliawatson
+                "IRyS" -> R.drawable.ic_irys
                 else -> null
             }
             chipIcon?.let { icon ->
@@ -363,5 +407,4 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
     }
 
 }
-
 

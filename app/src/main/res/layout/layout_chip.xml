@@ -5,7 +5,6 @@
     android:padding="4dp">
 
     <data>
-
         <variable
             name="tag"
             type="com.cidra.hologram.data.UpcomingItem" />
@@ -15,9 +14,17 @@
         android:id="@+id/chip_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:chipBackgroundColor="#00FFFFFF"
+        app:chipStrokeColor="@color/stroke_color"
+        android:textColor="@color/primaryDarkColor"
         android:textSize="12sp"
-        app:chipIconSize="20dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        app:chipStrokeWidth="1dp"
+        app:textEndPadding="4dp"
+        app:textStartPadding="8dp"
         app:ensureMinTouchTargetSize="false"
-        tools:chipIcon="@drawable/ic_outline_videogame_asset_24"
+        app:chipIconSize="20dp"
+        tools:chipIcon="@drawable/ic_watame"
         tools:text="はあちゃま" />
+    <!--    app:chipBackgroundColor="#8083F3FF"-->
 </layout>

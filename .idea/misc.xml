@@ -3,15 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_akaihaato.xml" value="0.18787878787878787" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_akirose.xml" value="0.18787878787878787" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_azuki.xml" value="0.18787878787878787" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.1632034632034632" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_draw_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_choko.xml" value="0.18787878787878787" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_connection_error.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_moona.xml" value="0.18787878787878787" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_outline_videogame_asset_24.xml" value="0.1632034632034632" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_sakuramiko.xml" value="0.19078947368421054" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/fragment_tab_archives.xml" value="0.25" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/fragment_tab_live.xml" value="0.33" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/fragment_tab_schedule.xml" value="0.15526315789473685" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_archives.xml" value="0.15526315789473685" />
-        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_header_today.xml" value="0.1" />
-        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_live.xml" value="0.15526315789473685" />
-        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_schedule.xml" value="0.25" />
-        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/layout_chip.xml" value="0.1" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_header_today.xml" value="0.33" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_header_tomorrow.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_live.xml" value="0.22" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/item_schedule.xml" value="0.33" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/layout_chip.xml" value="0.67" />
       </map>
     </option>
   </component>
