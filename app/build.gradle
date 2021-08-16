@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs"
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 
     id "com.cookpad.android.plugin.license-tools" version "1.2.8"
 }
@@ -37,8 +38,8 @@ android {
         applicationId "com.cidra.Hologram"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 20600
-        versionName "2.6.0"
+        versionCode 20700
+        versionName "2.7.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = ["YOUTUBE_API_KEY": envProps.YOUTUBE_API_KEY]
@@ -102,6 +103,7 @@ dependencies {
     // firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
 
     // android-ago

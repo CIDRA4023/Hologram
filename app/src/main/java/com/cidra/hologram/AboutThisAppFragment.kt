@@ -47,14 +47,14 @@ class AboutThisAppFragment : Fragment() {
         }
 
         view.twemoji_license.setOnClickListener {
-            val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
+            val termsUrl = "https://github.com/twitter/twemoji"
             val intentTerms = Intent(Intent.ACTION_VIEW)
             intentTerms.data = Uri.parse(termsUrl)
             startActivity(intentTerms)
         }
 
         view.terms_app.setOnClickListener {
-            val termsUrl = "https://github.com/twitter/twemoji"
+            val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
             val intentTerms = Intent(Intent.ACTION_VIEW)
             intentTerms.data = Uri.parse(termsUrl)
             startActivity(intentTerms)
