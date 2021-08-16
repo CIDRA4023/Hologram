@@ -1,5 +1,7 @@
 **Privacy Policy**
 
+
+
 built the Hologram app as a Freemium app. This SERVICE is provided by at no cost and is intended for use as is.
 
 This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
@@ -8,13 +10,21 @@ If you choose to use my Service, then you agree to the collection and use of inf
 
 The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at Hologram unless otherwise defined in this Privacy Policy.
 
+**取得する情報について**
+
+本アプリでは、利用状況解析のためにGoogle Firebase Analytics、クラッシュデータの収集のためにFirebase Crashlyticsを使用する場合がございます。
+取得する情報につきましては個人を特定するためなどには使用しておりません。
+取得する情報、利用目的、第三者への提供等の詳細につきましては、以下のプライバシーポリシーのリンクよりご確認ください。
+
+*   [Google Privacy Policy](https://www.google.com/policies/privacy/)
+*   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
+*   [Firebase Crashlytics](https://firebase.google.com/support/privacy/)
+
 **Information Collection and Use**
 
-For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.
-
-The app does use third party services that may collect information used to identify you.
-
-Link to privacy policy of third party service providers used by the app
+This application may use Google Firebase Analytics to analyze usage and Firebase Crashlytics to collect crash data.
+The information collected is not used to identify individuals or for any other purpose.
+For more information about the information we collect, how we use it, and how we provide it to third parties, please see the Privacy Policy link below.
 
 *   [Google Privacy Policy](https://www.google.com/policies/privacy/)
 *   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
