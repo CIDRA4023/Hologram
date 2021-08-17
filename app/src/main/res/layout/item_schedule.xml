@@ -28,8 +28,7 @@
             app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/stroke_color"
-            app:strokeWidth="2dp">
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -58,7 +57,7 @@
             android:id="@+id/vertical_line_timeline"
             android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="@color/secondaryLightColor"
+            android:background="@color/background_grey"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
@@ -80,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/materialCardView2"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/stroke_color"
+            app:strokeColor="@color/background_grey"
             app:strokeWidth="1dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
