@@ -53,18 +53,18 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
+<!--stroke colorにするとandroid9より前の端末でクラッシュ発生-->
         <View
             android:id="@+id/vertical_line_timeline"
             android:layout_width="2dp"
             android:layout_height="0dp"
-            android:background="@color/stroke_color"
+            android:background="@color/secondaryLightColor"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/materialCardView2"
             app:layout_constraintStart_toStartOf="@+id/materialCardView2"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
-            app:layout_constraintVertical_bias="0.0" />
+             />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
