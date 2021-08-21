@@ -94,20 +94,36 @@ object FirebaseService {
 
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
+                    if (it.child("likeCount").value.toString() == "None"){
+                        val singleItem = NoneItem(
+                            it.key.toString(),
+                            it.child("title").value.toString(),
+                            it.child("thumbnailUrl").value.toString(),
+                            it.child("publishedAt").value.toString(),
+                            it.child("viewCount").value.toString().toInt(),
+                            0,
+                            it.child("channelName").value.toString(),
+                            it.child("channelIconUrl").value.toString(),
+                            it.child("duration").value.toString(),
+                            tagList
+                        )
+                        videoItemList.add(singleItem)
+                    } else {
+                        val singleItem = NoneItem(
+                            it.key.toString(),
+                            it.child("title").value.toString(),
+                            it.child("thumbnailUrl").value.toString(),
+                            it.child("publishedAt").value.toString(),
+                            it.child("viewCount").value.toString().toInt(),
+                            it.child("likeCount").value.toString().toInt(),
+                            it.child("channelName").value.toString(),
+                            it.child("channelIconUrl").value.toString(),
+                            it.child("duration").value.toString(),
+                            tagList
+                        )
+                        videoItemList.add(singleItem)
+                    }
 
-                    val singleItem = NoneItem(
-                        it.key.toString(),
-                        it.child("title").value.toString(),
-                        it.child("thumbnailUrl").value.toString(),
-                        it.child("publishedAt").value.toString(),
-                        it.child("viewCount").value.toString().toInt(),
-                        it.child("likeCount").value.toString().toInt(),
-                        it.child("channelName").value.toString(),
-                        it.child("channelIconUrl").value.toString(),
-                        it.child("duration").value.toString(),
-                        tagList
-                    )
-                    videoItemList.add(singleItem)
                 }
                 videoItemList.sortByDescending { it.publishedAt }
                 continuation.resume(videoItemList)

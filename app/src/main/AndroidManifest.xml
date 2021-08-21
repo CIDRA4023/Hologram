@@ -12,10 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hologram"
         android:usesCleartextTraffic="true">
-        <!-- YouTube Data Api -->
-        <meta-data
-            android:name="apiKey"
-            android:value="${YOUTUBE_API_KEY}" />
         <activity android:name="com.cidra.hologram.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

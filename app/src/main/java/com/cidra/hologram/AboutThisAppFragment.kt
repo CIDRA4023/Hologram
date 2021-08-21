@@ -4,14 +4,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
-import com.google.android.gms.oss.licenses.OssLicensesActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_about_this_app.view.*
-import kotlinx.android.synthetic.main.web_view.*
 
 
 class AboutThisAppFragment : Fragment() {
@@ -67,13 +65,10 @@ class AboutThisAppFragment : Fragment() {
             startActivity(intentPolicy)
         }
 
-//        view.license_app.setOnClickListener {
-////            val intent = Intent(activity?.applicationContext, OssLicensesActivity::class.java)
+        view.license_app.setOnClickListener {
+            findNavController().navigate(R.id.action_aboutThisAppFragment_to_webViewFragment)
 
-////            startActivity(intent)
-//            val webView = view.findViewById<WebView>(R.id.webView)
-//            webView.loadUrl("file:///android_asset/licenses.html")
-//        }
+        }
 
         return view
     }
