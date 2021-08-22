@@ -7,10 +7,11 @@
 <!--        android:title="@string/policy"-->
 <!--        app:showAsAction="never" />-->
 
-<!--    <item-->
-<!--        android:id="@+id/terms"-->
-<!--        android:title="@string/terms"-->
-<!--        app:showAsAction="never" />-->
+    <item
+        android:id="@+id/share"
+        android:title="@string/share"
+        app:showAsAction="never"
+        />
 
     <item
         android:id="@+id/about_app"

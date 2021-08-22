@@ -37,6 +37,9 @@
 
     <string name="policy">プライバシーポリシー</string>
     <string name="terms">利用規約</string>
+    <string name="share">このアプリを紹介する</string>
+    <string name="not_found_share">共有可能なアプリがありません</string>
+    <string name="share_app_data">「ホロ・グラム」を使ってホロライブVtuberの配信動画をチェック！\n\nPlayストアで絶賛配信中！\nhttps://cutt.ly/jQ4Tl24 \n\n #Hologram #ホロ・グラム</string>
     <string name="about_app">このアプリについて</string>
     <string name="review">レビューを投稿する</string>
     <string name="license">ライセンス</string>
