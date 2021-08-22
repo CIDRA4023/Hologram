@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
@@ -54,21 +55,30 @@ class MainFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val packageName = "com.cidra.Hologram"
+        val uri: Uri = Uri.parse("market://details?id=$packageName")
+
         when (item.itemId) {
-//            // プライバシーポリシー
-//            R.id.policy -> {
-//                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
-//                val intentPolicy = Intent(Intent.ACTION_VIEW)
-//                intentPolicy.data = Uri.parse(policyUrl)
-//                startActivity(intentPolicy)
-//            }
-//            // 利用規約
-//            R.id.terms -> {
-//                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
-//                val intentTerms = Intent(Intent.ACTION_VIEW)
-//                intentTerms.data = Uri.parse(termsUrl)
-//                startActivity(intentTerms)
-//            }
+            // アプリの共有
+            R.id.share -> {
+                val shareData = getString(R.string.share_app_data)
+
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, shareData)
+                }
+                if (intent.resolveActivity(requireContext().packageManager) != null) {
+                    startActivity(
+                        Intent.createChooser(
+                            intent,
+                            null
+                        )
+                    )
+                } else {
+                    Toast.makeText(requireContext(), R.string.not_found_share, Toast.LENGTH_SHORT).show()
+                }
+            }
             // このアプリについて
             R.id.about_app -> {
                 findNavController().navigate(R.id.action_mainFragment_to_aboutThisAppFragment)
@@ -76,8 +86,7 @@ class MainFragment : Fragment() {
             }
             // レビューを投稿する
             R.id.review -> {
-                val packageName = "com.cidra.Hologram"
-                val uri: Uri = Uri.parse("market://details?id=$packageName")
+
                 val goToMarket = Intent(Intent.ACTION_VIEW, uri)
                 goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
                         Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
