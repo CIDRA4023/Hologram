@@ -300,10 +300,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "ときのそら" -> it
                 "ロボ子" -> it
                 "さくらみこ" -> it
-                "星街すいせい" -> it
+                "星街すいせい", "Suisei" -> "星街すいせい"
                 "AZKi" -> it
                 "夜空メル" -> it
-                "アキ・ローゼンタール" -> it
+                "アキ・ローゼンタール", "アキロゼ" -> "アキ・ローゼンタール"
                 "赤井はあと" -> it
                 "白上フブキ" -> it
                 "夏色まつり" -> it
@@ -329,7 +329,7 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "獅白ぼたん" -> it
                 "尾丸ポルカ" -> it
                 "IOFI", "iofi" -> "Iofi"
-                "MOONA", "ムーナ" -> "Moona"
+                "Moona", "ムーナ" -> "Moona"
                 "Risu" -> it
                 "Ollie" -> it
                 "Anya" -> it
@@ -352,10 +352,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "ときのそら" -> R.drawable.ic_sora
                 "ロボ子" -> R.drawable.ic_roboko
                 "さくらみこ" -> R.drawable.ic_sakuramiko
-                "星街すいせい" -> R.drawable.ic_suisei
+                "星街すいせい", "Suisei" -> R.drawable.ic_suisei
                 "AZKi" -> R.drawable.ic_azuki
                 "夜空メル" -> R.drawable.ic_meru
-                "アキ・ローゼンタール" -> R.drawable.ic_akirose
+                "アキ・ローゼンタール", "アキロゼ" -> R.drawable.ic_akirose
                 "赤井はあと" -> R.drawable.ic_akaihaato
                 "白上フブキ" -> R.drawable.ic_fubuki
                 "夏色まつり" -> R.drawable.ic_matsuri
@@ -381,7 +381,7 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "獅白ぼたん" -> R.drawable.ic_botan
                 "尾丸ポルカ" -> R.drawable.ic_poruka
                 "IOFI", "Iofi" -> R.drawable.ic_iofi
-                "MOONA", "ムーナ" -> R.drawable.ic_moona
+                "Moona", "ムーナ" -> R.drawable.ic_moona
                 "Risu" -> R.drawable.ic_risu
                 "Ollie" -> R.drawable.ic_ollie
                 "Anya" -> R.drawable.ic_anya
