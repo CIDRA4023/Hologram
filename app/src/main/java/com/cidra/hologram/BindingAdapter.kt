@@ -176,16 +176,24 @@ fun bindDurationText(durationText: TextView, duration: String?) {
 
 @BindingAdapter("scheduleStartTimeFormat")
 fun TextView.bindSText(item: String?) {
+    val lang = Locale.getDefault().language
 
     val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
     sdf.timeZone = TimeZone.getTimeZone("UTC")
-    val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val sdf24 = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val sdf12 = SimpleDateFormat("hh:mm \n  a", Locale.getDefault())
 
-    item?.let {
-        val dateObject = sdf.parse(it)
-        text = sdf2.format(dateObject!!)
+    if (lang == "ja") {
+        item?.let {
+            val dateObject = sdf.parse(it)
+            text = sdf24.format(dateObject!!)
+        }
+    } else {
+        item?.let {
+            val dateObject = sdf.parse(it)
+            text = sdf12.format(dateObject!!)
+        }
     }
-
 }
 
 @BindingAdapter("currentViewerFormat")
