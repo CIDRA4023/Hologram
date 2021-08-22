@@ -119,6 +119,19 @@
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     tools:text="10000" />
 
+                <View
+                    android:id="@+id/clickableOverlay_live"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:onClick="@{() -> clickListener.onClick(item)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <HorizontalScrollView
                     android:id="@+id/horizontalScrollView2"
                     android:layout_width="0dp"
@@ -145,19 +158,6 @@
                     </com.google.android.material.chip.ChipGroup>
 
                 </HorizontalScrollView>
-
-                <View
-                    android:id="@+id/clickableOverlay_live"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:onClick="@{() -> clickListener.onClick(item)}"
-                    app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

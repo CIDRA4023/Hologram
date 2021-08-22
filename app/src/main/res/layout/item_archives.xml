@@ -20,17 +20,30 @@
         android:layout_height="wrap_content">
 
 
+        <View
+            android:id="@+id/clickableOverlay_archives"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClick(item)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:scrollbars="none"
             app:layout_constraintEnd_toStartOf="@+id/right_well"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/center_well"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+            app:layout_constraintTop_toTopOf="@+id/bottom_well">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group_schedule"
@@ -78,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="48dp" />
+            app:layout_constraintGuide_end="52dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/top_well"
@@ -174,19 +187,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <View
-            android:id="@+id/clickableOverlay_archives"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?attr/selectableItemBackground"
-            android:onClick="@{() -> clickListener.onClick(item)}"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_well"
-            app:layout_constraintEnd_toStartOf="@+id/center_well"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/video_duration"
