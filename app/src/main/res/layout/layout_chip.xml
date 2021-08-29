@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         app:chipBackgroundColor="#00FFFFFF"
         app:chipStrokeColor="@color/stroke_color"
-        android:textColor="@color/primaryDarkColor"
         android:textSize="12sp"
         android:textAppearance="@android:style/TextAppearance.Material.Body2"
         app:chipStrokeWidth="1dp"

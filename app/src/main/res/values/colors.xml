@@ -26,5 +26,6 @@
 
     <color name="text_light">#ff666666</color>
     <color name="background_grey">#ffDDDDDD</color>
+    <color name="stroke">#1FFFFFFF</color>
 </resources>
 

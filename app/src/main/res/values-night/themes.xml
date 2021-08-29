@@ -39,4 +39,5 @@
         <item name="tabSelectedTextColor">@color/primaryColor</item>
 
     </style>
+
 </resources>

@@ -182,7 +182,6 @@
 
         <View
             android:id="@+id/chip_background"
-            style="@style/CustomView"
             android:layout_width="0dp"
             android:layout_height="54dp"
             app:layout_constraintBottom_toBottomOf="parent"
