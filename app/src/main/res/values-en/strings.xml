@@ -42,12 +42,19 @@
     <string name="share_app_data">Check out the Streaming of Hololive Vtubers using Hologram, now available on the Play Store to rave reviews! \n\n https://cutt.ly/jQ4Tl24 \n\n #Hologram #ホロ・グラム</string>
     <string name="about_app">About this app</string>
     <string name="review">Post a review</string>
+    <string name="preference">Setting</string>
     <string name="license">License</string>
 
     <string name="app_desc_title">What is Hologram?</string>
     <string name="app_desc">This app allows you to check the distribution status of holo-live Vtubers.</string>
 
     <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
+
+    <string name="setting">Notation</string>
+    <string name="time_notation">Time notation</string>
+    <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>
+    <string name="time_notation_12hour">12-hour</string>
+    <string name="time_notation_24hour">24-hour</string>
 
 
 </resources>

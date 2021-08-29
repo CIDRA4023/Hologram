@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="time_notation_label">
+        <item>@string/time_notation_12hour</item>
+        <item>@string/time_notation_24hour</item>
+    </array>
+
+    <string-array name="time_notation_values">
+        <item>12</item>
+        <item>24</item>
+    </string-array>
+</resources>

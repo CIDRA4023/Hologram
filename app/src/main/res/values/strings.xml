@@ -42,6 +42,7 @@
     <string name="share_app_data">「ホロ・グラム」を使ってホロライブVtuberの配信動画をチェック！\n\nPlayストアで絶賛配信中！\nhttps://cutt.ly/jQ4Tl24 \n\n #Hologram #ホロ・グラム</string>
     <string name="about_app">このアプリについて</string>
     <string name="review">レビューを投稿する</string>
+    <string name="preference">設定</string>
     <string name="license">ライセンス</string>
 
     <string name="app_desc_title">ホログラムとは？</string>
@@ -49,5 +50,10 @@
 
     <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
 
+    <string name="setting">表記設定</string>
+    <string name="time_notation">時刻表記</string>
+    <string name="time_notation_summary">12時間表記と24時間表記を切り替えます</string>
+    <string name="time_notation_12hour">12時間</string>
+    <string name="time_notation_24hour">24時間</string>
 
 </resources>

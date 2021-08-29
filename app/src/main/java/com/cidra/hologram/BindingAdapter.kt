@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -79,19 +80,20 @@ fun TextView.bindLText(item: String?) {
     val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
     sdf.timeZone = TimeZone.getTimeZone("UTC")
 
-    if (lang != "ja") {
-        val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
-        item?.let {
-            val dateObject = sdf.parse(it)
-            text = sdf2.format(dateObject!!).plus(" Started")
-        }
-    } else {
-        val sdf2 = SimpleDateFormat("HH時 mm分 開始", Locale.getDefault())
-        item?.let {
-            val dateObject = sdf.parse(it)
-            text = sdf2.format(dateObject!!)
+    item?.let {
+        val dateObject = sdf.parse(it)
+        text = when (lang) {
+            "ja" -> {
+                val sdf2 = SimpleDateFormat("HH時 mm分 開始", Locale.getDefault())
+                sdf2.format(dateObject!!).plus(" Started")
+            }
+            else -> {
+                val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
+                sdf2.format(dateObject!!).plus(" Started")
+            }
         }
     }
+
 }
 
 
@@ -176,6 +178,8 @@ fun bindDurationText(durationText: TextView, duration: String?) {
 
 @BindingAdapter("scheduleStartTimeFormat")
 fun TextView.bindSText(item: String?) {
+    val sharedPreference = PreferenceManager.getDefaultSharedPreferences(this.context)
+
     val lang = Locale.getDefault().language
 
     val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
@@ -183,17 +187,22 @@ fun TextView.bindSText(item: String?) {
     val sdf24 = SimpleDateFormat("HH:mm", Locale.getDefault())
     val sdf12 = SimpleDateFormat("hh:mm \n  a", Locale.getDefault())
 
-    if (lang == "ja") {
-        item?.let {
-            val dateObject = sdf.parse(it)
-            text = sdf24.format(dateObject!!)
-        }
-    } else {
-        item?.let {
-            val dateObject = sdf.parse(it)
-            text = sdf12.format(dateObject!!)
+    item?.let {
+        val dateObject = sdf.parse(it)
+        text = when (lang) {
+            "ja" -> {
+                val timeNotationStatus = sharedPreference.getString("timeNotation", "24")
+                Log.i("preference", "$timeNotationStatus")
+                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(dateObject!!)
+            }
+            else -> {
+                val timeNotationStatus = sharedPreference.getString("timeNotation", "12")
+                Log.i("preference", "$timeNotationStatus")
+                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(dateObject!!)
+            }
         }
     }
+
 }
 
 @BindingAdapter("currentViewerFormat")

@@ -98,6 +98,10 @@ class MainFragment : Fragment() {
                         Uri.parse("http://play.google.com/store/apps/details?id=$packageName")))
                 }
             }
+
+            R.id.preference -> {
+                findNavController().navigate(R.id.action_mainFragment_to_preferenceFragment)
+            }
         }
 
         return super.onOptionsItemSelected(item)

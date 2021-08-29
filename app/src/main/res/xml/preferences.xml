@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="preferenceCategory"
+        app:title="@string/setting"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="timeNotation"
+            app:summary="@string/time_notation_summary"
+            app:title="@string/time_notation"
+            app:entries="@array/time_notation_label"
+            app:entryValues="@array/time_notation_values"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
+

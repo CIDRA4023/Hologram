@@ -23,4 +23,9 @@
         android:title="@string/review"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/preference"
+        android:title="@string/preference"
+        app:showAsAction="never" />
+
 </menu>
