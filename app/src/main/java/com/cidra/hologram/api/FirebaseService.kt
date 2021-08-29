@@ -23,15 +23,26 @@ object FirebaseService {
             val videoItems = ref.orderByChild("eventType").equalTo("live").get()
             videoItems.addOnSuccessListener { dataSnapshot ->
                 dataSnapshot.children.forEach {
+
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
                     Log.i("videoId_live", it.key.toString())
+
+                    /**
+                     * 通常のライブ配信：そのまま表示
+                     * プレミアム公開：０
+                     */
+                    val currentViewers = when (it.child("likeCount").value.toString()) {
+                        "プレミアム公開中" -> 99999999 // 並び替え時に先頭表示かつcurrentViewerで分岐するため
+                        else -> it.child("currentViewers").value.toString()
+                    }.toString()
+
                     val singleItem = LiveItem(
                         it.key.toString(),
                         it.child("title").value.toString(),
                         it.child("thumbnailUrl").value.toString(),
                         it.child("startTime").value.toString(),
-                        it.child("currentViewers").value.toString(),
+                        currentViewers,
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString(),
                         tagList
@@ -94,38 +105,32 @@ object FirebaseService {
 
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
-                    if (it.child("likeCount").value.toString() == "None"){
-                        val singleItem = NoneItem(
-                            it.key.toString(),
-                            it.child("title").value.toString(),
-                            it.child("thumbnailUrl").value.toString(),
-                            it.child("publishedAt").value.toString(),
-                            it.child("viewCount").value.toString().toInt(),
-                            0,
-                            it.child("channelName").value.toString(),
-                            it.child("channelIconUrl").value.toString(),
-                            it.child("duration").value.toString(),
-                            tagList
-                        )
-                        videoItemList.add(singleItem)
-                    } else {
-                        val singleItem = NoneItem(
-                            it.key.toString(),
-                            it.child("title").value.toString(),
-                            it.child("thumbnailUrl").value.toString(),
-                            it.child("publishedAt").value.toString(),
-                            it.child("viewCount").value.toString().toInt(),
-                            it.child("likeCount").value.toString().toInt(),
-                            it.child("channelName").value.toString(),
-                            it.child("channelIconUrl").value.toString(),
-                            it.child("duration").value.toString(),
-                            tagList
-                        )
-                        videoItemList.add(singleItem)
-                    }
 
+                    /**
+                     * 評価非表示：０
+                     * 評価表示：そのまま表示
+                     */
+                    val likeCount = when (it.child("likeCount").value.toString()) {
+                        "None" -> 0
+                        else -> it.child("likeCount").value.toString().toInt()
+                    }
+                    val singleItem = NoneItem(
+                        it.key.toString(),
+                        it.child("title").value.toString(),
+                        it.child("thumbnailUrl").value.toString(),
+                        it.child("publishedAt").value.toString(),
+                        it.child("viewCount").value.toString().toInt(),
+                        likeCount,
+                        it.child("channelName").value.toString(),
+                        it.child("channelIconUrl").value.toString(),
+                        it.child("duration").value.toString(),
+                        tagList
+                    )
+                    videoItemList.add(singleItem)
                 }
+                // アップロード順に並び替え
                 videoItemList.sortByDescending { it.publishedAt }
+
                 continuation.resume(videoItemList)
             }.addOnFailureListener {
                 Log.e("firebase_none", "${it.message}")
