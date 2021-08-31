@@ -354,6 +354,20 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Gura" -> it
                 "Amelia" -> it
                 "IRyS" -> it
+                "Sana" -> it
+                "Fauna" -> it
+                "Kronii" -> it
+                "Mumei" -> it
+                "Baelz" -> it
+                "花咲みやび" -> it
+                "奏手イヅル" -> it
+                "アルランディス" -> it
+                "律可" -> it
+                "アステル" -> it
+                "岸堂天真" -> it
+                "夕刻ロベル" -> it
+                "影山シエン" -> it
+                "荒咬オウガ" -> it
                 else -> it
             }
             val chipIcon = when (it) {
@@ -406,6 +420,20 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Gura" -> R.drawable.ic_gura
                 "Amelia" -> R.drawable.ic_ameliawatson
                 "IRyS" -> R.drawable.ic_irys
+                "Sana" -> R.drawable.ic_sana
+                "Fauna" -> R.drawable.ic_fauna
+                "Kronii" -> R.drawable.ic_kronii
+                "Mumei" -> R.drawable.ic_mumei
+                "Baelz" -> R.drawable.ic_baelz
+                "花咲みやび" -> R.drawable.ic_miyabi
+                "奏手イヅル" -> R.drawable.ic_izuru
+                "アルランディス" -> R.drawable.ic_arurandeisu
+                "律可" -> R.drawable.ic_rikka
+                "アステル" -> R.drawable.ic_astel
+                "岸堂天真" -> R.drawable.ic_temma_1
+                "夕刻ロベル" -> R.drawable.ic_roberu
+                "影山シエン" -> R.drawable.ic_shien
+                "荒咬オウガ" -> R.drawable.ic_oga
                 else -> null
             }
             chipIcon?.let { icon ->

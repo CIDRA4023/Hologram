@@ -50,6 +50,8 @@
 
     <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
 
+    <!--    Setting     -->
+
     <string name="setting">表記設定</string>
     <string name="time_notation">時刻表記</string>
     <string name="time_notation_summary">12時間表記と24時間表記を切り替えます</string>

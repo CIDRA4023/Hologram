@@ -50,6 +50,8 @@
 
     <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
 
+    <!--    Setting     -->
+
     <string name="setting">Notation</string>
     <string name="time_notation">Time notation</string>
     <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>
