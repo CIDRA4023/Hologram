@@ -1,15 +1,22 @@
 package com.cidra.hologram.adapters
 
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.children
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cidra.hologram.R
+import com.cidra.hologram.TagList
+import com.cidra.hologram.data.NoneItem
 import com.cidra.hologram.data.UpcomingItem
 import com.cidra.hologram.databinding.ItemScheduleBinding
 import com.cidra.hologram.viewmodels.ScheduleViewModel
+import com.google.android.material.chip.Chip
 
 
 private const val TODAY_HEADER = 0
@@ -53,6 +60,37 @@ class UpcomingListAdapter(
             binding.item = item.today
             binding.clickListener = clickListener
             binding.executePendingBindings()
+
+            val chipGroup = binding.chipGroupSchedule
+            chipGroup.children.forEach {
+                val a = it as Chip
+                Log.i("chipCount", "${a.text}")
+                onClickChip(it)
+            }
+        }
+
+        /**
+         * chipをクリックしたときの処理
+         * intentを使ってチャンネルページに飛ぶようにする
+         */
+        private fun onClickChip(chip: Chip){
+            val tagText = chip.text
+            val idList = TagList.nameToId
+            val categoryList = TagList.categoryName
+
+            if (categoryList.contains(tagText)) {
+                return
+            } else {
+                chip.setOnClickListener {
+                    Log.i("chipText", "$tagText")
+                    val baseUrl = "https://www.youtube.com/channel/"
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    Log.i("chipText", "$idList[$tagText]")
+                    intent.data = Uri.parse(baseUrl + idList["$tagText"])
+                    val context = it.context
+                    context.startActivity(intent)
+                }
+            }
         }
 
         companion object {
@@ -73,6 +111,37 @@ class UpcomingListAdapter(
             binding.item = item.tomorrow
             binding.clickListener = clickListener
             binding.executePendingBindings()
+
+            val chipGroup = binding.chipGroupSchedule
+            chipGroup.children.forEach {
+                val a = it as Chip
+                Log.i("chipCount", "${a.text}")
+                onClickChip(it)
+            }
+        }
+
+        /**
+         * chipをクリックしたときの処理
+         * intentを使ってチャンネルページに飛ぶようにする
+         */
+        private fun onClickChip(chip: Chip){
+            val tagText = chip.text
+            val idList = TagList.nameToId
+            val categoryList = TagList.categoryName
+
+            if (categoryList.contains(tagText)) {
+                return
+            } else {
+                chip.setOnClickListener {
+                    Log.i("chipText", "$tagText")
+                    val baseUrl = "https://www.youtube.com/channel/"
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    Log.i("chipText", "$idList[$tagText]")
+                    intent.data = Uri.parse(baseUrl + idList["$tagText"])
+                    val context = it.context
+                    context.startActivity(intent)
+                }
+            }
         }
 
         companion object {
@@ -163,6 +232,9 @@ class UpcomingListAdapter(
         }
 
     }
+
+
+
 }
 
 class UpcomingListListener(val clickListener: (id: String) -> Unit) {
