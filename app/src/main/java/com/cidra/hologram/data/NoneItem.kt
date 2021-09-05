@@ -10,5 +10,6 @@ data class NoneItem(
     val channelName: String,
     val channelIconUrl: String,
     val duration: String,
-    val tagList: List<String>
+    val tagList: List<String>,
+    val tagGroup: String
 )

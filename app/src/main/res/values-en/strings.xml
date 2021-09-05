@@ -51,8 +51,11 @@
     <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
 
     <!--    Setting     -->
+    <string name="setting_category_display">Display Setting</string>
+    <string name="set_group_desc">Switching between Hololive and Holostars</string>
+    <string name="set_group_hololive">Hololive</string>
+    <string name="set_group_holostars">Holostars</string>
 
-    <string name="setting">Notation</string>
     <string name="time_notation">Time notation</string>
     <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>
     <string name="time_notation_12hour">12-hour</string>

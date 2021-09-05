@@ -9,4 +9,16 @@
         <item>12</item>
         <item>24</item>
     </string-array>
+
+    <array name="set_group_label">
+        <item>@string/set_group_hololive</item>
+        <item>@string/set_group_holostars</item>
+    </array>
+
+    <string-array name="set_group_value">
+        <item>hololive</item>
+        <item>holoStars</item>
+    </string-array>
+
+
 </resources>

@@ -26,6 +26,7 @@ object FirebaseService {
 
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
+                    val tagGroup = it.child("tag").child("group").value.toString()
                     Log.i("videoId_live", it.key.toString())
 
                     /**
@@ -45,7 +46,8 @@ object FirebaseService {
                         currentViewers,
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString(),
-                        tagList
+                        tagList,
+                        tagGroup
                     )
                     videoItemList.add(singleItem)
                 }
@@ -69,6 +71,7 @@ object FirebaseService {
 
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
+                    val tagGroup = it.child("tag").child("group").value.toString()
 
                     Log.i("TAGC", "${it.child("title").value}")
                     Log.i("TAGC", "${ it.child("tag").child("category").value }")
@@ -79,7 +82,8 @@ object FirebaseService {
                         it.child("scheduledStartTime").value.toString(),
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString(),
-                        tagList
+                        tagList,
+                        tagGroup
                     )
 
                     videoItemList.add(singleItem)
@@ -105,6 +109,7 @@ object FirebaseService {
 
                     val tagList = listOf(it.child("tag").child("category").value.toString()) +
                             it.child("tag").child("member").value.toString().split(",")
+                    val tagGroup = it.child("tag").child("group").value.toString()
 
                     /**
                      * 評価非表示：０
@@ -124,7 +129,8 @@ object FirebaseService {
                         it.child("channelName").value.toString(),
                         it.child("channelIconUrl").value.toString(),
                         it.child("duration").value.toString(),
-                        tagList
+                        tagList,
+                        tagGroup
                     )
                     videoItemList.add(singleItem)
                 }

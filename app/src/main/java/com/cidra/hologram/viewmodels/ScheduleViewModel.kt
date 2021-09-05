@@ -17,7 +17,6 @@ import kotlin.collections.ArrayList
 class ScheduleViewModel : ViewModel() {
 
     private val _response = MutableLiveData<List<UpcomingItem>>()
-
     private val _todayItem = MutableLiveData<List<UpcomingItem>>()
     val todayItem: LiveData<List<UpcomingItem>>
         get() = _todayItem

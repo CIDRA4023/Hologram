@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.cidra.hologram.adapters.ListItem
 import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
+import com.cidra.hologram.adapters.UpcomingListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
+import com.cidra.hologram.data.UpcomingItem
 import com.cidra.hologram.databinding.LayoutChipBinding
 import com.cidra.hologram.viewmodels.NetworkStatus
 import com.github.curioustechizen.ago.RelativeTimeTextView
@@ -62,14 +65,74 @@ fun bindIconImage(imgView: ImageView, imgUrl: String?) {
 
 @BindingAdapter("liveListData")
 fun bindLRecyclerView(recyclerView: RecyclerView, data: List<LiveItem>?) {
+    val sharedPreference = PreferenceManager.getDefaultSharedPreferences(recyclerView.context)
+    val settingStatus = sharedPreference.getString("setGroup", "hololive")
+    Log.i("setting_pre_binding", "$settingStatus")
+    val filteredData = when (settingStatus) {
+        "hololive" -> {
+            data?.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
+        }
+        "holoStars" -> {
+            data?.filter { it.tagGroup == "holoStars" }
+        }
+        else -> {
+            return
+        }
+    }
     val adapter = recyclerView.adapter as LiveListAdapter
-    adapter.submitList(data)
+    adapter.submitList(filteredData)
 }
+
+//@BindingAdapter("UpcomingListData")
+//fun bindURecyclerView(recyclerView: RecyclerView, data: List<UpcomingItem>?) {
+//    val sharedPreference = PreferenceManager.getDefaultSharedPreferences(recyclerView.context)
+//    val settingStatus = sharedPreference.getString("setGroup", "hololive")
+//    Log.i("setting_pre_binding", "$settingStatus")
+//    val filteredData = when (settingStatus) {
+//        "hololive" -> {
+//            data?.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
+////            todayData?.filter {
+////                it.today.tagGroup == "holoJp" || it.today.tagGroup == "holoId" || it.today.tagGroup == "holoEn"
+////            }
+////            tomorrowData?.filter {
+////                it.tomorrow.tagGroup == "holoJp" || it.tomorrow.tagGroup == "holoId" || it.tomorrow.tagGroup == "holoEn"
+////            }
+//        }
+//        "holoStars" -> {
+//            data?.filter { it.tagGroup == "holoStars" }
+////            todayData?.filter {
+////                it.today.tagGroup == "holoStars"
+////            }
+////            tomorrowData?.filter {
+////                it.tomorrow.tagGroup == "holoStars"
+////            }
+//        }
+//        else -> {
+//            return
+//        }
+//    }
+//    val adapter = recyclerView.adapter as UpcomingListAdapter
+//    adapter.submitList(filteredData)
+//}
 
 @BindingAdapter("ArchivesListData")
 fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
+    val sharedPreference = PreferenceManager.getDefaultSharedPreferences(recyclerView.context)
+    val settingStatus = sharedPreference.getString("setGroup", "hololive")
+    Log.i("setting_pre_binding", "$settingStatus")
+    val filteredData = when (settingStatus) {
+        "hololive" -> {
+            data?.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
+        }
+        "holoStars" -> {
+            data?.filter { it.tagGroup == "holoStars" }
+        }
+        else -> {
+            return
+        }
+    }
     val adapter = recyclerView.adapter as NoneListAdapter
-    adapter.submitList(data)
+    adapter.submitList(filteredData)
 }
 
 

@@ -1,11 +1,15 @@
 package com.cidra.hologram.viewmodels
 
+import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.preference.PreferenceManager
+import com.cidra.hologram.MainActivity
 import com.cidra.hologram.api.FirebaseService
+import com.cidra.hologram.bindSText
 import com.cidra.hologram.data.LiveItem
 import kotlinx.coroutines.launch
 
@@ -85,6 +89,22 @@ class LiveViewModel : ViewModel() {
             }
         }
     }
+
+//    fun setGroupFilter(sharedPreference: SharedPreferences) {
+//        val settingStatus = sharedPreference.getString("setGroup", "hololive")
+//        Log.i("settingItem", "$settingStatus")
+//        when (settingStatus) {
+//            "hololive" -> {
+//                _response.value = videoList.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
+//            }
+//            "holoStars" -> {
+//                _response.value = videoList.filter { it.tagGroup == "holoStars" }
+//            }
+//            else -> {
+//                return
+//            }
+//        }
+//    }
 
     /**
      * fab並び替え処理
