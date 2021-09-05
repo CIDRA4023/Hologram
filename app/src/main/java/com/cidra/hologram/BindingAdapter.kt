@@ -368,7 +368,7 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "夕刻ロベル" -> it
                 "影山シエン" -> it
                 "荒咬オウガ" -> it
-                "ホロライブ" -> it
+                "hololive ホロライブ " -> "Hololive Official"
                 else -> it
             }
             val chipIcon = when (it) {

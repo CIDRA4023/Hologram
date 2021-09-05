@@ -83,6 +83,6 @@ object TagList {
         "夕刻ロベル" to "UCANDOlYTJT7N5jlRC3zfzVA",
         "影山シエン" to "UChSvpZYRPh0FvG4SJGSga3g",
         "荒咬オウガ" to "UCwL7dgTxKo8Y4RFIKWaf8gA",
-        "ホロライブ" to "UCJFZiqLMntJufDCHc6bQixg"
+        "Hololive Official" to "UCJFZiqLMntJufDCHc6bQixg"
     )
 }
