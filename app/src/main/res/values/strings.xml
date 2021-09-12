@@ -55,6 +55,7 @@
     <string name="set_group_desc">ホロライブとホロスターズの切り替え</string>
     <string name="set_group_hololive">ホロライブ</string>
     <string name="set_group_holostars">ホロスターズ</string>
+    <string name="set_group_all">すべて表示</string>
 
     <string name="time_notation">時刻表記</string>
     <string name="time_notation_summary">12時間表記と24時間表記を切り替えます</string>

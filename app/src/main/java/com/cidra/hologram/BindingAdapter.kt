@@ -13,13 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.cidra.hologram.adapters.ListItem
 import com.cidra.hologram.adapters.LiveListAdapter
 import com.cidra.hologram.adapters.NoneListAdapter
-import com.cidra.hologram.adapters.UpcomingListAdapter
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
-import com.cidra.hologram.data.UpcomingItem
 import com.cidra.hologram.databinding.LayoutChipBinding
 import com.cidra.hologram.viewmodels.NetworkStatus
 import com.github.curioustechizen.ago.RelativeTimeTextView
@@ -76,7 +73,7 @@ fun bindLRecyclerView(recyclerView: RecyclerView, data: List<LiveItem>?) {
             data?.filter { it.tagGroup == "holoStars" }
         }
         else -> {
-            return
+            data
         }
     }
     val adapter = recyclerView.adapter as LiveListAdapter
@@ -128,7 +125,7 @@ fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
             data?.filter { it.tagGroup == "holoStars" }
         }
         else -> {
-            return
+            data
         }
     }
     val adapter = recyclerView.adapter as NoneListAdapter
@@ -256,12 +253,16 @@ fun TextView.bindSText(item: String?) {
             "ja" -> {
                 val timeNotationStatus = sharedPreference.getString("timeNotation", "24")
                 Log.i("preference", "$timeNotationStatus")
-                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(dateObject!!)
+                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(
+                    dateObject!!
+                )
             }
             else -> {
                 val timeNotationStatus = sharedPreference.getString("timeNotation", "12")
                 Log.i("preference", "$timeNotationStatus")
-                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(dateObject!!)
+                if (timeNotationStatus == "12") sdf12.format(dateObject!!) else sdf24.format(
+                    dateObject!!
+                )
             }
         }
     }

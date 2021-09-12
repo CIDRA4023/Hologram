@@ -3,7 +3,6 @@ package com.cidra.hologram
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,14 +48,30 @@ class TabArchivesFragment : Fragment() {
 
         binding.chipGroup.setOnCheckedChangeListener { _, isChecked ->
             when (isChecked) {
-                R.id.chip_today -> { viewModel.filterSelectedChip(dateAgo(0), 0) }
-                R.id.chip_yesterday -> { viewModel.filterSelectedChip(dateAgo(-1), -1) }
-                R.id.chip_ago_2days -> { viewModel.filterSelectedChip(dateAgo(-2), -2) }
-                R.id.chip_ago_3days -> { viewModel.filterSelectedChip(dateAgo(-3), -3) }
-                R.id.chip_ago_4days -> { viewModel.filterSelectedChip(dateAgo(-4), -4) }
-                R.id.chip_ago_5days -> { viewModel.filterSelectedChip(dateAgo(-5), -5) }
-                R.id.chip_ago_6days -> { viewModel.filterSelectedChip(dateAgo(-6), -6) }
-                R.id.chip_ago_7days -> { viewModel.filterSelectedChip(dateAgo(-7), -7) }
+                R.id.chip_today -> {
+                    viewModel.filterSelectedChip(dateAgo(0), 0)
+                }
+                R.id.chip_yesterday -> {
+                    viewModel.filterSelectedChip(dateAgo(-1), -1)
+                }
+                R.id.chip_ago_2days -> {
+                    viewModel.filterSelectedChip(dateAgo(-2), -2)
+                }
+                R.id.chip_ago_3days -> {
+                    viewModel.filterSelectedChip(dateAgo(-3), -3)
+                }
+                R.id.chip_ago_4days -> {
+                    viewModel.filterSelectedChip(dateAgo(-4), -4)
+                }
+                R.id.chip_ago_5days -> {
+                    viewModel.filterSelectedChip(dateAgo(-5), -5)
+                }
+                R.id.chip_ago_6days -> {
+                    viewModel.filterSelectedChip(dateAgo(-6), -6)
+                }
+                R.id.chip_ago_7days -> {
+                    viewModel.filterSelectedChip(dateAgo(-7), -7)
+                }
             }
         }
 

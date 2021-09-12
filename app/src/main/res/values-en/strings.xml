@@ -55,6 +55,7 @@
     <string name="set_group_desc">Switching between Hololive and Holostars</string>
     <string name="set_group_hololive">Hololive</string>
     <string name="set_group_holostars">Holostars</string>
+    <string name="set_group_all">All Member</string>
 
     <string name="time_notation">Time notation</string>
     <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>

@@ -38,6 +38,7 @@ class TabScheduleFragment : Fragment() {
             startActivity(intent)
         })
 
+        // viewmodelFactoryに設定値を渡す
         val sharedPreference = PreferenceManager.getDefaultSharedPreferences(context)
         val settingStatus = sharedPreference.getString("setGroup", "hololive")
 
@@ -52,17 +53,22 @@ class TabScheduleFragment : Fragment() {
                         item = when {
                             todayItemList.isEmpty() -> listOf(ListItem.TomorrowHeader) + tomorrowItemList.map {
                                 ListItem.TomorrowItem(it)
-                            }.filter { it.tomorrow.tagGroup == "holoJp" || it.tomorrow.tagGroup == "holoId" || it.tomorrow.tagGroup == "holoEn" }
+                            }
+                                .filter { it.tomorrow.tagGroup == "holoJp" || it.tomorrow.tagGroup == "holoId" || it.tomorrow.tagGroup == "holoEn" }
 
                             tomorrowItemList.isEmpty() -> listOf(ListItem.TodayHeader) + todayItemList.map {
                                 ListItem.TodayItem(it)
-                            }.filter { it.today.tagGroup == "holoJp" || it.today.tagGroup == "holoId" || it.today.tagGroup == "holoEn" }
+                            }
+                                .filter { it.today.tagGroup == "holoJp" || it.today.tagGroup == "holoId" || it.today.tagGroup == "holoEn" }
 
                             todayItemList.isEmpty() && tomorrowItemList.isEmpty() -> listOf()
 
                             else -> listOf(ListItem.TodayHeader) + todayItemList.map {
                                 ListItem.TodayItem(it)
-                            }.filter { it.today.tagGroup == "holoJp" || it.today.tagGroup == "holoId" || it.today.tagGroup == "holoEn" } + listOf(ListItem.TomorrowHeader) + tomorrowItemList.map { ListItem.TomorrowItem(it) }
+                            }
+                                .filter { it.today.tagGroup == "holoJp" || it.today.tagGroup == "holoId" || it.today.tagGroup == "holoEn" } + listOf(
+                                ListItem.TomorrowHeader
+                            ) + tomorrowItemList.map { ListItem.TomorrowItem(it) }
                                 .filter { it.tomorrow.tagGroup == "holoJp" || it.tomorrow.tagGroup == "holoId" || it.tomorrow.tagGroup == "holoEn" }
                         }
                     }
@@ -96,23 +102,17 @@ class TabScheduleFragment : Fragment() {
                     else -> {
                         item = when {
                             todayItemList.isEmpty() -> listOf(ListItem.TomorrowHeader) + tomorrowItemList.map {
-                                ListItem.TomorrowItem(
-                                    it
-                                )
+                                ListItem.TomorrowItem(it)
                             }
 
                             tomorrowItemList.isEmpty() -> listOf(ListItem.TodayHeader) + todayItemList.map {
-                                ListItem.TodayItem(
-                                    it
-                                )
+                                ListItem.TodayItem(it)
                             }
 
                             todayItemList.isEmpty() && tomorrowItemList.isEmpty() -> listOf()
 
                             else -> listOf(ListItem.TodayHeader) + todayItemList.map {
-                                ListItem.TodayItem(
-                                    it
-                                )
+                                ListItem.TodayItem(it)
                             } + listOf(
                                 ListItem.TomorrowHeader
                             ) + tomorrowItemList.map { ListItem.TomorrowItem(it) }

@@ -89,7 +89,7 @@ class ScheduleViewModel : ViewModel() {
             _tomorrowItem.value =
                 getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(tomorrow()) }
             //_response.value = FirebaseService.getUpcomingItem()
-            Log.i("response", "${_response.value}")
+//            Log.i("response", "${_response.value}")
             _isLoading.value = false
         }
     }
