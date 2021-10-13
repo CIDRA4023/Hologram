@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">ホログラム</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_live">LIVE</string>
+    <string name="tab_schedule">配信予定</string>
+    <string name="tab_archives">アーカイブ</string>
+
+    <string name="none_item_live">配信中のアイテムはありません</string>
+
+    <string name="schedule_header_today">今日の配信</string>
+    <string name="schedule_header_tomorrow">明日の配信</string>
+
+    <string name="fab_title">並び替え</string>
+
+    <string name="start_text">開始</string>
+    <string name="relative_time_start_stream_prefix" />
+    <string name="relative_time_start_stream_suffix">に配信開始</string>
+    <string name="current_viewer_count_unit">人視聴中</string>
+    <string name="current_viewer_count_unit_K">K watching</string>
+    <string name="current_viewer_count_unit_M">M watching</string>
+    <string name="current_viewer_premium">プレミアム公開中</string>
+    <string name="view_count_unit">回再生</string>
+
+    <string name="view_count_unit_K">K views</string>
+    <string name="view_count_unit_M">M views</string>
+
+    <string name="fab_text_start_time_live">開始時間</string>
+    <string name="fab_text_viewer_live">視聴者数</string>
+
+    <string name="fab_text_like_archives">いいね</string>
+    <string name="fab_text_update_archives">投稿時間</string>
+    <string name="fab_text_viewer_archives">再生回数</string>
+
+    <string name="chip_text_today_archives">今日</string>
+    <string name="chip_text_yesterday_archives">昨日</string>
+
+    <string name="policy">プライバシーポリシー</string>
+    <string name="terms">利用規約</string>
+    <string name="share">このアプリを紹介する</string>
+    <string name="not_found_share">共有可能なアプリがありません</string>
+    <string name="share_app_data">「ホロ・グラム」を使ってホロライブVtuberの配信動画をチェック！\n\nPlayストアで絶賛配信中！\nhttps://cutt.ly/jQ4Tl24 \n\n #Hologram #ホロ・グラム</string>
+    <string name="about_app">このアプリについて</string>
+    <string name="review">レビューを投稿する</string>
+    <string name="preference">設定</string>
+    <string name="license">ライセンス</string>
+
+    <string name="app_desc_title">ホログラムとは？</string>
+    <string name="app_desc">このアプリはホロライブVtuberの配信状況が確認できるアプリです。</string>
+
+    <string name="twemoji_license">This app uses graphics from Twitter Emoji licensed under CC-BY 4.0</string>
+
+    <!--    Setting     -->
+    <string name="setting_category_display">表示設定</string>
+    <string name="set_group_desc">表示内容の切り替え</string>
+    <string name="set_group_hololive">ホロライブ</string>
+    <string name="set_group_holostars">ホロスターズ</string>
+    <string name="set_group_all">すべて表示</string>
+
+    <string name="time_notation">時刻表記</string>
+    <string name="time_notation_summary">12時間表記と24時間表記を切り替えます</string>
+    <string name="time_notation_12hour">12時間</string>
+    <string name="time_notation_24hour">24時間</string>
+
+</resources>

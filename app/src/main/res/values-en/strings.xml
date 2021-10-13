@@ -52,7 +52,7 @@
 
     <!--    Setting     -->
     <string name="setting_category_display">Display Setting</string>
-    <string name="set_group_desc">Switching between Hololive and Holostars</string>
+    <string name="set_group_desc">Switching the display contents</string>
     <string name="set_group_hololive">Hololive</string>
     <string name="set_group_holostars">Holostars</string>
     <string name="set_group_all">All Member</string>
