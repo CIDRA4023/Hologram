@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="time_notation_label">
+        <item>@string/time_notation_12hour</item>
+        <item>@string/time_notation_24hour</item>
+    </array>
+
+    <string-array name="time_notation_values">
+        <item>12</item>
+        <item>24</item>
+    </string-array>
+
+    <array name="set_group_label">
+        <item>@string/set_group_hololive</item>
+        <item>@string/set_group_holostars</item>
+        <item>@string/set_group_all</item>
+    </array>
+
+    <string-array name="set_group_value">
+        <item>hololive</item>
+        <item>holoStars</item>
+        <item>all</item>
+    </string-array>
+
+
+</resources>

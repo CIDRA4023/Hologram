@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cidra.hologram.api.YoutubeService
+import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.UpcomingItem
 import com.cidra.hologram.utilities.sdf
 import com.cidra.hologram.utilities.tomorrow
@@ -17,7 +17,6 @@ import kotlin.collections.ArrayList
 class ScheduleViewModel : ViewModel() {
 
     private val _response = MutableLiveData<List<UpcomingItem>>()
-
     private val _todayItem = MutableLiveData<List<UpcomingItem>>()
     val todayItem: LiveData<List<UpcomingItem>>
         get() = _todayItem
@@ -27,9 +26,9 @@ class ScheduleViewModel : ViewModel() {
         get() = _tomorrowItem
 
 
-    private val _status = MutableLiveData<YoutubeApiStatus>()
+    private val _status = MutableLiveData<NetworkStatus>()
 
-    val status: LiveData<YoutubeApiStatus>
+    val status: LiveData<NetworkStatus>
         get() = _status
 
     private val _isLoading = MutableLiveData<Boolean>()
@@ -44,23 +43,23 @@ class ScheduleViewModel : ViewModel() {
 
     private fun loadVideo() {
         viewModelScope.launch {
-            _status.value = YoutubeApiStatus.LOADING
+            _status.value = NetworkStatus.LOADING
             try {
-                val getVideoList = YoutubeService.getUpcomingItem()
+                val getVideoList = FirebaseService.getUpcomingItem()
 //                _response.value = getVideoList
-                _status.value = YoutubeApiStatus.DONE
+                _status.value = NetworkStatus.DONE
 
                 // 今日と明日のアイテムに分離
                 _todayItem.value =
-                    getVideoList.filter { truncate(sdf(it.startTime)) == truncate(Date()) }
+                    getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(Date()) }
                 _tomorrowItem.value =
-                    getVideoList.filter { truncate(sdf(it.startTime)) == truncate(tomorrow()) }
+                    getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(tomorrow()) }
                 Log.i("filterTodayList", "${_todayItem.value}")
                 Log.i("filterTomorrowList", "${_tomorrowItem.value}")
 
             } catch (e: Exception) {
-                _status.value = YoutubeApiStatus.ERROR
-//                _response.value = ArrayList()
+                Log.e("ScheduleViewModel", "${e.message}")
+                _status.value = NetworkStatus.ERROR
                 _todayItem.value = ArrayList()
                 _tomorrowItem.value = ArrayList()
             }
@@ -84,13 +83,13 @@ class ScheduleViewModel : ViewModel() {
      */
     fun refresh() {
         viewModelScope.launch {
-            val getVideoList = YoutubeService.getUpcomingItem()
+            val getVideoList = FirebaseService.getUpcomingItem()
             _todayItem.value =
-                getVideoList.filter { truncate(sdf(it.startTime)) == truncate(Date()) }
+                getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(Date()) }
             _tomorrowItem.value =
-                getVideoList.filter { truncate(sdf(it.startTime)) == truncate(tomorrow()) }
-            //_response.value = YoutubeService.getUpcomingItem()
-            Log.i("response", "${_response.value}")
+                getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(tomorrow()) }
+            //_response.value = FirebaseService.getUpcomingItem()
+//            Log.i("response", "${_response.value}")
             _isLoading.value = false
         }
     }

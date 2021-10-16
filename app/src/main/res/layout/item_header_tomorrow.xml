@@ -5,10 +5,11 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,8 +27,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/header_name_tomorrow"
+                android:text="@string/schedule_header_tomorrow"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/vertical_line_today"
                 app:layout_constraintTop_toTopOf="parent" />
 

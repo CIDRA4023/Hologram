@@ -9,5 +9,34 @@
         android:id="@+id/mainFragment"
         android:name="com.cidra.hologram.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_aboutThisAppFragment"
+            app:destination="@id/aboutThisAppFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_preferenceFragment"
+            app:destination="@id/preferenceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutThisAppFragment"
+        android:name="com.cidra.hologram.AboutThisAppFragment"
+        android:label="fragment_about_this_app"
+        tools:layout="@layout/fragment_about_this_app" >
+        <action
+            android:id="@+id/action_aboutThisAppFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.cidra.hologram.WebViewFragment"
+        android:label="WebViewFragment" />
+    <fragment
+        android:id="@+id/preferenceFragment"
+        android:name="com.cidra.hologram.PreferenceFragment"
+        android:label="fragment_preference"
+        tools:layout="@layout/fragment_preference" />
 </navigation>

@@ -1,14 +1,19 @@
 package com.cidra.hologram.viewmodels
 
+import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cidra.hologram.api.YoutubeService
+import androidx.preference.PreferenceManager
+import com.cidra.hologram.MainActivity
+import com.cidra.hologram.api.FirebaseService
+import com.cidra.hologram.bindSText
 import com.cidra.hologram.data.LiveItem
 import kotlinx.coroutines.launch
 
-enum class YoutubeApiStatus { LOADING, ERROR, DONE }
+enum class NetworkStatus { LOADING, ERROR, DONE, NONE}
 
 class LiveViewModel : ViewModel() {
 
@@ -18,11 +23,12 @@ class LiveViewModel : ViewModel() {
     val response: LiveData<List<LiveItem>>
         get() = _response
 
-    private val _status = MutableLiveData<YoutubeApiStatus>()
+    private val _status = MutableLiveData<NetworkStatus>()
 
-    val status: LiveData<YoutubeApiStatus>
+    val status: LiveData<NetworkStatus>
         get() = _status
 
+    // SwipeRefresh用のローディングステート
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean>
         get() = _isLoading
@@ -36,13 +42,24 @@ class LiveViewModel : ViewModel() {
 
     private fun loadVideo() {
         viewModelScope.launch {
-            _status.value = YoutubeApiStatus.LOADING
+            _status.value = NetworkStatus.LOADING
             try {
-                videoList = YoutubeService.getLiveItem()
+
+                videoList = FirebaseService.getLiveItem()
+                Log.i("ItemCount", "${videoList.size}")
                 _response.value = videoList
-                _status.value = YoutubeApiStatus.DONE
+
+                // 配信アイテムがなかった時
+                if(videoList.isEmpty()) {
+                    _status.value = NetworkStatus.NONE
+                    Log.i("NetworkStatus", "None")
+                } else {
+                    _status.value = NetworkStatus.DONE
+                }
+
             } catch (e: Exception) {
-                _status.value = YoutubeApiStatus.ERROR
+                Log.e("LiveViewModel", "${e.message}")
+                _status.value = NetworkStatus.ERROR
                 _response.value = ArrayList()
             }
         }
@@ -53,17 +70,47 @@ class LiveViewModel : ViewModel() {
      */
     fun refresh() {
         viewModelScope.launch {
-            videoList = YoutubeService.getLiveItem()
-            _response.value = videoList
-            _isLoading.value = false
+            try {
+                FirebaseService.getLiveItem()
+                videoList = FirebaseService.getLiveItem()
+                _response.value = videoList
+
+                if (videoList.isEmpty()) {
+                    _status.value = NetworkStatus.NONE
+                } else {
+                    _status.value = NetworkStatus.DONE
+                }
+
+                // 読み込みが終わったらローディングステートを終了
+                _isLoading.value = false
+            } catch (e: Exception) {
+                _status.value = NetworkStatus.ERROR
+                _response.value = ArrayList()
+            }
         }
     }
+
+//    fun setGroupFilter(sharedPreference: SharedPreferences) {
+//        val settingStatus = sharedPreference.getString("setGroup", "hololive")
+//        Log.i("settingItem", "$settingStatus")
+//        when (settingStatus) {
+//            "hololive" -> {
+//                _response.value = videoList.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
+//            }
+//            "holoStars" -> {
+//                _response.value = videoList.filter { it.tagGroup == "holoStars" }
+//            }
+//            else -> {
+//                return
+//            }
+//        }
+//    }
 
     /**
      * fab並び替え処理
      */
     fun sortByViewer() {
-        val sortedVideoList = videoList.sortedByDescending { it.viewers }
+        val sortedVideoList = videoList.sortedByDescending { it.currentViewers.toInt()}
         _response.value = sortedVideoList
     }
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="preferenceCategory"
+        app:title="@string/setting_category_display"
+        app:iconSpaceReserved="false">
+
+        <ListPreference
+            app:key="setGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:entries="@array/set_group_label"
+            app:entryValues="@array/set_group_value"
+            app:iconSpaceReserved="false"
+            app:title="@string/set_group_desc"
+            app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            app:key="timeNotation"
+            app:summary="@string/time_notation_summary"
+            app:title="@string/time_notation"
+            app:entries="@array/time_notation_label"
+            app:entryValues="@array/time_notation_values"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
+

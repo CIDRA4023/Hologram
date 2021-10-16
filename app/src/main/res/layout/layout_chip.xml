@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="4dp">
+
+    <data>
+        <variable
+            name="tag"
+            type="com.cidra.hologram.data.UpcomingItem" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipBackgroundColor="#00FFFFFF"
+        app:chipStrokeColor="@color/stroke_color"
+        android:textSize="12sp"
+        android:textAppearance="@android:style/TextAppearance.Material.Body2"
+        app:chipStrokeWidth="1dp"
+        app:textEndPadding="4dp"
+        app:textStartPadding="8dp"
+        app:ensureMinTouchTargetSize="false"
+        app:chipIconSize="20dp"
+        tools:chipIcon="@drawable/ic_watame"
+        tools:text="はあちゃま" />
+    <!--    app:chipBackgroundColor="#8083F3FF"-->
+</layout>

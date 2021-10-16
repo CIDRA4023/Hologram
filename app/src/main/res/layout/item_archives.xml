@@ -20,6 +20,44 @@
         android:layout_height="wrap_content">
 
 
+        <View
+            android:id="@+id/clickableOverlay_archives"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="@{() -> clickListener.onClick(item)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toStartOf="@+id/right_well"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/center_well"
+            app:layout_constraintTop_toTopOf="@+id/bottom_well">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_archive"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                app:addChip="@{item.tagList}"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="1dp">
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_well"
             android:layout_width="wrap_content"
@@ -53,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="4dp" />
+            app:layout_constraintGuide_end="52dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/top_well"
@@ -67,22 +105,21 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            app:imgUrl="@{item.thumbnailUrl}"
+            app:imgAUrl="@{item.thumbnailUrl}"
             app:layout_constraintBottom_toTopOf="@+id/bottom_well"
             app:layout_constraintDimensionRatio="h,16:9"
             app:layout_constraintEnd_toStartOf="@+id/center_well"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/left_well"
             app:layout_constraintTop_toTopOf="@+id/top_well"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_well"
             app:layout_constraintEnd_toStartOf="@+id/right_well"
             app:layout_constraintStart_toStartOf="@+id/center_well"
             app:layout_constraintTop_toTopOf="@+id/top_well">
@@ -108,7 +145,7 @@
                     android:id="@+id/channel_icon"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    app:iconUrl="@{item.iconUrl}"
+                    app:iconUrl="@{item.channelIconUrl}"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
@@ -135,26 +172,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
-                    app:viewerFormat="@{item.viewers}"
-                    tools:text="1.5万" />
-                <!--                android:text="@{Integer.toString(item.viewers)}"-->
+                    app:viewCountFormat="@{item.viewers}"
+                    tools:text="1.5万回再生" />
+
+                <com.github.curioustechizen.ago.RelativeTimeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textSize="12sp"
+                    app:reference_time="@{item.publishedAt}"
+                    tools:text="10分前" />
+
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/clickableOverlay_archives"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?attr/selectableItemBackground"
-            android:onClick="@{() -> clickListener.onClick(item)}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#AF000000"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/video_thumbnail"
+            app:layout_constraintEnd_toStartOf="@+id/center_well"
+            app:videoDuration="@{item.duration}"
+            tools:text="HH:mm:ss" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

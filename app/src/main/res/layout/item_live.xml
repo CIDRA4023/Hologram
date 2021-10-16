@@ -71,7 +71,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
-                    app:iconUrl="@{item.iconUrl}"
+                    app:iconUrl="@{item.channelIconUrl}"
                     app:layout_constraintStart_toStartOf="@+id/left_well"
                     app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
                     tools:srcCompat="@tools:sample/avatars" />
@@ -92,40 +92,30 @@
                     app:layout_constraintTop_toBottomOf="@+id/video_thumbnail"
                     tools:text="動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル動画タイトル" />
 
-                <TextView
+
+                <com.github.curioustechizen.ago.RelativeTimeTextView
                     android:id="@+id/start_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="8dp"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/channel_icon"
                     app:layout_constraintTop_toBottomOf="@+id/title"
-                    app:timeFormat="@{item.startTime}"
-                    tools:text="HH：mm" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:text="開始"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@+id/start_time"
-                    app:layout_constraintTop_toBottomOf="@+id/title" />
+                    app:reference_time="@{item.startTime}"
+                    app:relative_time_prefix="@string/relative_time_start_stream_prefix"
+                    app:relative_time_suffix="@string/relative_time_start_stream_suffix"
+                    tools:text="10分前" />
 
                 <TextView
                     android:id="@+id/current_viewers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:textSize="12sp"
-                    app:currentViewerFormat="@{item.viewers}"
-                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:currentViewerFormat="@{item.currentViewers}"
+                    app:layout_constraintStart_toEndOf="@+id/start_time"
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     tools:text="10000" />
 
@@ -137,8 +127,37 @@
                     android:onClick="@{() -> clickListener.onClick(item)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:scrollbars="none"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/right_well"
+                    app:layout_constraintStart_toEndOf="@+id/channel_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/start_time">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_live"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        app:addChip="@{item.tagList}"
+                        app:chipSpacingHorizontal="8dp"
+                        app:chipSpacingVertical="1dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </HorizontalScrollView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,31 +11,30 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_main"
+        style="@style/CustomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:tabBackground="@color/primaryLightColor"
-        app:tabIndicatorColor="@color/primaryDarkColor"
-        app:tabIndicatorHeight="4dp"
-        app:tabTextColor="@color/black">
+        app:tabTextAppearance="@style/TabTextAppearance"
+        app:tabIndicator="@drawable/indicator"
+        app:tabIndicatorGravity="stretch">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/live" />
+            android:text="@string/tab_live" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Schedule" />
+            android:text="@string/tab_schedule" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Archives" />
+            android:text="@string/tab_archives" />
 
     </com.google.android.material.tabs.TabLayout>
 
@@ -43,8 +44,14 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_main" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
