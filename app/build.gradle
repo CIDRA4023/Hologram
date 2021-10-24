@@ -11,8 +11,20 @@ plugins {
 
 }
 
+// local.propertiesの読み込み
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
+    signingConfigs {
+        // リリースビルド時の署名情報読み込み
+        release {
+            storeFile rootProject.file('./android-app-key.jks')
+            storePassword  properties.getProperty("RELEASE_STORE_PASSWORD")
+            keyAlias properties.getProperty("RELEASE_KEY_ALIAS")
+            keyPassword properties.getProperty("RELEASE_KEY_PASSWORD")
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -25,6 +37,7 @@ android {
         versionName "2.9.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -32,8 +45,14 @@ android {
             buildConfigField 'boolean', 'UPDATE_ENABLED', 'true'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -44,6 +63,11 @@ android {
 
     dataBinding {
         enabled true
+    }
+
+    lintOptions {
+        // releaseビルドでLintエラーを無視する
+        checkReleaseBuilds false
     }
 }
 
@@ -80,10 +104,9 @@ dependencies {
 
     // firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
-
+    releaseImplementation 'com.google.firebase:firebase-analytics-ktx'
+    releaseImplementation 'com.google.firebase:firebase-crashlytics-ktx'
     // android-ago
     implementation 'com.github.curioustechizen.android-ago:library:1.4.0'
 
