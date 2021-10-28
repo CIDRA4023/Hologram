@@ -110,8 +110,16 @@ class LiveViewModel : ViewModel() {
      * fab並び替え処理
      */
     fun sortByViewer() {
-        val sortedVideoList = videoList.sortedByDescending { it.currentViewers.toInt()}
-        _response.value = sortedVideoList
+
+        // 文字列データリストと整数型リストで分割
+        // 文字列データリストを先頭にして,視聴者数で降順にソートしたリストと結合
+        val notIntList = videoList.filter { it.currentViewers == "premiere" }
+        val intList = videoList.filter { it.currentViewers.toIntOrNull() != null }
+        val sortedIntList = intList.sortedByDescending { it.currentViewers.toInt() }
+        val joinedList = notIntList + sortedIntList
+
+        _response.value = joinedList
+
     }
 
     fun sortByStartTime() {

@@ -272,24 +272,33 @@ fun TextView.bindSText(item: String?) {
 @BindingAdapter("currentViewerFormat")
 fun currentViewerFormat(cviewerText: TextView, count: String) {
     val lang = Locale.getDefault().language
-    return if (lang != "ja") {
-        when (count.length) {
-            0, 1, 2, 3 -> cviewerText.text = count.toString()
-                .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
-            4, 5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
-                .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
-            else -> cviewerText.text =
-                cviewerText.resources.getString(R.string.current_viewer_premium)
+    // currentViewersに格納されている値が整数か文字列かで分岐
+    return if (count.toIntOrNull() != null) {
+        // 言語によって表記を変更
+        if (lang != "ja") {
+            when (count.length) {
+                0, 1, 2, 3 -> cviewerText.text = count.toString()
+                    .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
+                4, 5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
+                    .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
+                else -> cviewerText.text =
+                    cviewerText.resources.getString(R.string.current_viewer_premium)
+            }
+        } else {
+            when (count.length) {
+                0, 1, 2, 3, 4 -> cviewerText.text = count.plus(" 人視聴中")
+                5, 6 -> cviewerText.text =
+                    (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
+                // プレミアム公開だった時
+                else -> cviewerText.text =
+                    cviewerText.resources.getString(R.string.current_viewer_premium)
+            }
         }
-    } else {
-        when (count.length) {
-            0, 1, 2, 3, 4 -> cviewerText.text = count.plus(" 人視聴中")
-            5, 6 -> cviewerText.text =
-                (ceil(count.toDouble() / 1000) / 10).toString().plus("万 人視聴中")
-            // プレミアム公開だった時
-            else -> cviewerText.text = count
-        }
+        // 文字列（プレミアム公開）だったとき
+    }else {
+        cviewerText.text = cviewerText.resources.getString(R.string.current_viewer_premium)
     }
+
 }
 
 @BindingAdapter("viewCountFormat")
