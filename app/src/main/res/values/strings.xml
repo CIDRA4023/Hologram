@@ -61,6 +61,9 @@
     <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>
     <string name="time_notation_12hour">12-hour</string>
     <string name="time_notation_24hour">24-hour</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 
 
 </resources>
