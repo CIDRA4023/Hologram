@@ -2,11 +2,13 @@ package com.cidra.hologram.widget
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
+import androidx.preference.PreferenceManager
 import com.bumptech.glide.Glide
 import com.cidra.hologram.R
 import com.cidra.hologram.api.FirebaseService
@@ -15,12 +17,18 @@ import com.cidra.hologram.data.WidgetLiveItem
 class WidgetRemoteViewFactory (private val mContext: Context) : RemoteViewsService.RemoteViewsFactory {
 
 
-    private var widgetItem = arrayListOf<WidgetLiveItem>()
+    private var widgetItem = mutableListOf<WidgetLiveItem>()
 
 
     override fun onCreate() {
         widgetItem.clear()
-        widgetItem = FirebaseService.getWidgetItem()
+
+        val sharedPreference: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
+        val settingStatus = sharedPreference.getString("setWidgetGroup", "hololive")
+        settingStatus?.let { Log.i("widget_preference", it) }
+        // リファクタリング必要
+        widgetItem = settingStatus?.let { FirebaseService.getWidgetItem(it) }!!
+
         Log.i("widgetItem", "onCreate")
 
         // VideoItemを取得して表示させるために待機
@@ -29,9 +37,15 @@ class WidgetRemoteViewFactory (private val mContext: Context) : RemoteViewsServi
     }
 
     override fun onDataSetChanged() {
-            widgetItem.clear()
-            widgetItem = FirebaseService.getWidgetItem()
-            Log.i("widgetItem", "onDataSetChanged")
+        widgetItem.clear()
+
+        val sharedPreference: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext)
+        val settingStatus = sharedPreference.getString("setWidgetGroup", "hololive")
+        settingStatus?.let { Log.i("widget_preference", it) }
+
+        // リファクタリング必要
+        widgetItem = settingStatus?.let { FirebaseService.getWidgetItem(it) }!!
+
 
         // RVideoItemを取得して表示させるために待機
         SystemClock.sleep(5000)

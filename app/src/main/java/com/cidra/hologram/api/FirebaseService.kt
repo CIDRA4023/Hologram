@@ -145,15 +145,23 @@ object FirebaseService {
     }
 
 
-    fun getWidgetItem(): ArrayList<WidgetLiveItem> {
+    fun getWidgetItem(setting: String): ArrayList<WidgetLiveItem> {
         val liveItems = ref.orderByChild("eventType").equalTo("live").get()
         val videoItems = arrayListOf<WidgetLiveItem>()
+
         liveItems.addOnSuccessListener { dataSnapshot ->
             dataSnapshot.children.forEach {
+                var tagGroup = it.child("tag").child("group").value.toString()
+                if (tagGroup == "holoJp" || tagGroup == "holoEn"|| tagGroup == "holoId") { tagGroup = "hololive"}
                 val videoItem = WidgetLiveItem(videoId = it.key.toString(),
                     title = it.child("title").value.toString(),
-                    thumbnail = it.child("thumbnailUrlWidget").value.toString())
-                videoItems.add(videoItem)
+                    thumbnail = it.child("thumbnailUrlWidget").value.toString(),
+                    tagGroup = tagGroup)
+
+                if (videoItem.tagGroup == setting) {
+                    videoItems.add(videoItem)
+                }
+
                 Log.i("widgetItemSnapshot", "${videoItems.size}")
             }
         }.addOnFailureListener {

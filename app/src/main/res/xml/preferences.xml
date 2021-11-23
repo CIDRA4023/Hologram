@@ -27,14 +27,14 @@
     </PreferenceCategory>
     <PreferenceCategory
         app:iconSpaceReserved="false"
-        app:key="preferenceCategory"
+        app:key="preferenceCategoryWidget"
         app:title="@string/setting_widget">
 
         <ListPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:entries="@array/set_group_label"
-            app:entryValues="@array/set_group_value"
+            app:entryValues="@array/set_widget_group_value"
             app:iconSpaceReserved="false"
             app:key="setWidgetGroup"
             app:title="@string/set_widget_group_desc"
