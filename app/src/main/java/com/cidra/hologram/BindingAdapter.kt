@@ -350,7 +350,7 @@ fun bindStatusImage(statusImageView: ImageView, status: NetworkStatus?) {
 fun bindStatusText(statusTextView: TextView, status: NetworkStatus?) {
     when (status) {
         NetworkStatus.NONE -> {
-            statusTextView.text = statusTextView.resources.getString(R.string.none_item_live)
+            statusTextView.text = statusTextView.resources.getString(R.string.empty_item_live)
         }
         NetworkStatus.DONE -> {
             statusTextView.visibility = View.GONE

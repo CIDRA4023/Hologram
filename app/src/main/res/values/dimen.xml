@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="chipPadding">8dp</dimen>
+
+
+    <!--  Widget dimen  -->
+    <dimen name="widget_rounded_corners">32dp</dimen>
+    <dimen name="widget_button_rounded_corners">32dp</dimen>
+    <dimen name="widget_button_size">48dp</dimen>
+
 </resources>

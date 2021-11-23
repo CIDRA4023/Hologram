@@ -11,3 +11,9 @@ data class LiveItem(
         val tagList: List<String>,
         val tagGroup: String
 )
+
+data class WidgetLiveItem(
+        val videoId: String,
+        val title: String,
+        val thumbnail: String
+)

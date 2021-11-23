@@ -13,16 +13,24 @@
         android:theme="@style/Theme.Hologram"
         android:usesCleartextTraffic="true">
         <receiver
-            android:name=".widget.AppWidgetPrvider"
+            android:name=".widget.WidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.widgetapptest.widget.CLICK_ITEM"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ACTION_AUTO_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/app_widget_info" />
         </receiver>
+
+        <service
+            android:name=".widget.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
