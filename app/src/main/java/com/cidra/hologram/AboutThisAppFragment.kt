@@ -1,9 +1,11 @@
 package com.cidra.hologram
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,24 +47,37 @@ class AboutThisAppFragment : Fragment() {
         }
 
         view.twemoji_license.setOnClickListener {
-            val termsUrl = "https://github.com/twitter/twemoji"
-            val intentTerms = Intent(Intent.ACTION_VIEW)
-            intentTerms.data = Uri.parse(termsUrl)
-            startActivity(intentTerms)
+            try {
+                val termsUrl = "https://github.com/twitter/twemoji"
+                val intentTerms = Intent(Intent.ACTION_VIEW)
+                intentTerms.data = Uri.parse(termsUrl)
+                startActivity(intentTerms)
+            } catch (e: ActivityNotFoundException) {
+                Log.e("error ", "$e")
+            }
         }
 
         view.terms_app.setOnClickListener {
-            val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
-            val intentTerms = Intent(Intent.ACTION_VIEW)
-            intentTerms.data = Uri.parse(termsUrl)
-            startActivity(intentTerms)
+            try {
+                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
+                val intentTerms = Intent(Intent.ACTION_VIEW)
+                intentTerms.data = Uri.parse(termsUrl)
+                startActivity(intentTerms)
+            } catch (e: ActivityNotFoundException) {
+                Log.e("error ", "$e")
+            }
         }
 
         view.prvacy_policy_app.setOnClickListener {
-            val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
-            val intentPolicy = Intent(Intent.ACTION_VIEW)
-            intentPolicy.data = Uri.parse(policyUrl)
-            startActivity(intentPolicy)
+            try {
+                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
+                val intentPolicy = Intent(Intent.ACTION_VIEW)
+                intentPolicy.data = Uri.parse(policyUrl)
+                startActivity(intentPolicy)
+            } catch (e: ActivityNotFoundException) {
+                Log.e("error ", "$e")
+            }
+
         }
 
         view.license_app.setOnClickListener {
