@@ -22,5 +22,10 @@
         <item>all</item>
     </string-array>
 
+    <string-array name="set_widget_group_value">
+        <item>hololive</item>
+        <item>holoStars</item>
+        <item>all</item>
+    </string-array>
 
 </resources>

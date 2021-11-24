@@ -6,7 +6,7 @@
     <string name="tab_schedule">Schedule</string>
     <string name="tab_archives">Archives</string>
 
-    <string name="none_item_live">No Live Streaming</string>
+    <string name="empty_item_live">No Live Streaming</string>
 
     <string name="schedule_header_today">Today</string>
     <string name="schedule_header_tomorrow">Tomorrow</string>
@@ -56,11 +56,17 @@
     <string name="set_group_hololive">Hololive</string>
     <string name="set_group_holostars">Holostars</string>
     <string name="set_group_all">All Member</string>
+    <string name="setting_widget">Widget</string>
+    <string name="set_widget_group_desc">Switching the display contents in the widget</string>
 
     <string name="time_notation">Time notation</string>
     <string name="time_notation_summary">Switches between 12-hour and 24-hour time notation.</string>
     <string name="time_notation_12hour">12-hour</string>
     <string name="time_notation_24hour">24-hour</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="widget_button_update">UPDATE</string>
 
 
 </resources>

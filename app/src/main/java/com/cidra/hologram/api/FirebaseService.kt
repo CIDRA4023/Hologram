@@ -4,11 +4,10 @@ import android.util.Log
 import com.cidra.hologram.data.LiveItem
 import com.cidra.hologram.data.NoneItem
 import com.cidra.hologram.data.UpcomingItem
+import com.cidra.hologram.data.WidgetLiveItem
 import com.cidra.hologram.utilities.sdf
-import com.cidra.hologram.utilities.yesterday
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -50,6 +49,7 @@ object FirebaseService {
                         tagGroup
                     )
                     videoItemList.add(singleItem)
+                    Log.i("widgetItem", "${videoItemList.size}")
                 }
                 videoItemList.sortByDescending { it.startTime }
                 continuation.resume(videoItemList)
@@ -143,5 +143,32 @@ object FirebaseService {
             }
         }
     }
+
+
+    fun getWidgetItem(setting: String): ArrayList<WidgetLiveItem> {
+        val liveItems = ref.orderByChild("eventType").equalTo("live").get()
+        val videoItems = arrayListOf<WidgetLiveItem>()
+
+        liveItems.addOnSuccessListener { dataSnapshot ->
+            dataSnapshot.children.forEach {
+                var tagGroup = it.child("tag").child("group").value.toString()
+                if (tagGroup == "holoJp" || tagGroup == "holoEn"|| tagGroup == "holoId") { tagGroup = "hololive"}
+                val videoItem = WidgetLiveItem(videoId = it.key.toString(),
+                    title = it.child("title").value.toString(),
+                    thumbnail = it.child("thumbnailUrlWidget").value.toString(),
+                    tagGroup = tagGroup)
+
+                if (videoItem.tagGroup == setting) {
+                    videoItems.add(videoItem)
+                }
+
+                Log.i("widgetItemSnapshot", "${videoItems.size}")
+            }
+        }.addOnFailureListener {
+            Log.e("getVideoItem", "${it.message}")
+        }
+        return videoItems
+    }
+
 
 }
