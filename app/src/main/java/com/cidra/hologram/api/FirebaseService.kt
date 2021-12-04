@@ -158,8 +158,6 @@ object FirebaseService {
                     thumbnail = it.child("thumbnailUrl").value.toString(),
                     tagGroup = tagGroup)
 
-                Log.i("widgetThumbnailUrl", "${it.child("thumbnailUrlWidget").value.toString()}")
-
                 if (videoItem.tagGroup == setting) {
                     videoItems.add(videoItem)
                 }

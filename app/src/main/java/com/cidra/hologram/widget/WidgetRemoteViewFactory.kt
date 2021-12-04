@@ -61,24 +61,30 @@ class WidgetRemoteViewFactory (private val mContext: Context) : RemoteViewsServi
 
     override fun getViewAt(position: Int): RemoteViews {
         val views = RemoteViews(mContext.packageName, R.layout.widget_item_vf)
-        Log.i("widgetVideoUrl", widgetItem[position].thumbnail)
+
         try {
-            val bitmap = Glide.with(mContext)
-                .asBitmap()
-                .load(widgetItem[position].thumbnail)
-                .submit()
-                .get()
-            views.apply {
+            if (widgetItem.isNotEmpty()) {
+                Log.i("widgetSize", "${widgetItem.size}")
+                Log.i("widgetVideoUrl", widgetItem[position].thumbnail)
+                Log.i("widgetPosition", "$position")
+                val bitmap = Glide.with(mContext)
+                    .asBitmap()
+                    .load(widgetItem[position].thumbnail)
+                    .submit()
+                    .get()
+                views.apply {
 
-                setTextViewText(R.id.widget_vf_title, widgetItem[position].title)
-                setImageViewBitmap(R.id.widget_vf_thumbnail, bitmap)
-                setClickEvent(widgetItem[position].videoId)
-
+                    setTextViewText(R.id.widget_vf_title, widgetItem[position].title)
+                    setImageViewBitmap(R.id.widget_vf_thumbnail, bitmap)
+                    setClickEvent(widgetItem[position].videoId)
+                }
             }
 
             SystemClock.sleep(500)
 
         } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: IndexOutOfBoundsException) {
             e.printStackTrace()
         }
 
