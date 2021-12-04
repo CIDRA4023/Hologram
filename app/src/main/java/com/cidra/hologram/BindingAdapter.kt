@@ -384,37 +384,42 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "drawing" -> if (lang != "ja") "Drawing" else "お絵かき"
                 "watchAlong" -> if (lang != "ja") "Watch Along" else "同時視聴"
                 "cover" -> if (lang != "ja") "Cover" else "歌ってみた"
-                "ときのそら" -> it
-                "ロボ子" -> it
-                "さくらみこ" -> it
-                "星街すいせい", "Suisei" -> "星街すいせい"
+                "ときのそら" -> if (lang != "ja") "Sora" else it
+                "ロボ子" -> if (lang != "ja") "Robocosan" else it
+                "さくらみこ" -> if (lang != "ja") "Miko" else it
+                "星街すいせい", "Suisei" -> if (lang != "ja") "Suisei" else it
                 "AZKi" -> it
-                "夜空メル" -> it
-                "アキ・ローゼンタール", "アキロゼ" -> "アキ・ローゼンタール"
-                "赤井はあと" -> it
-                "白上フブキ" -> it
-                "夏色まつり" -> it
-                "湊あくあ" -> it
-                "紫咲シオン" -> it
-                "百鬼あやめ" -> it
-                "癒月ちょこ" -> it
-                "大空スバル" -> it
-                "大神ミオ" -> it
-                "猫又おかゆ" -> it
-                "戌神ころね" -> it
-                "兎田ぺこら" -> it
-                "潤羽るしあ" -> it
-                "不知火フレア" -> it
-                "白銀ノエル" -> it
-                "宝鐘マリン" -> it
-                "天音かなた" -> it
-                "角巻わため" -> it
-                "常闇トワ" -> it
-                "姫森ルーナ" -> it
-                "雪花ラミィ" -> it
-                "桃鈴ねね" -> it
-                "獅白ぼたん" -> it
-                "尾丸ポルカ" -> it
+                "夜空メル" -> if (lang != "ja") "Yozora Mel" else it
+                "アキ・ローゼンタール", "アキロゼ" -> if (lang != "ja") "Aki Rosenthal" else "アキ・ローゼンタール"
+                "赤井はあと" -> if (lang != "ja") "Haachama" else it
+                "白上フブキ" -> if (lang != "ja") "Fubuki" else it
+                "夏色まつり" -> if (lang != "ja") "Matsuri" else it
+                "湊あくあ" -> if (lang != "ja") "Aqua" else it
+                "紫咲シオン" -> if (lang != "ja") "Shion" else it
+                "百鬼あやめ" -> if (lang != "ja") "Ayame" else it
+                "癒月ちょこ" -> if (lang != "ja") "Choco" else it
+                "大空スバル" -> if (lang != "ja") "Subaru" else it
+                "大神ミオ" -> if (lang != "ja") "Mio" else it
+                "猫又おかゆ" -> if (lang != "ja") "Okayu" else it
+                "戌神ころね" -> if (lang != "ja") "Korone" else it
+                "兎田ぺこら" -> if (lang != "ja") "Pekora" else it
+                "潤羽るしあ" -> if (lang != "ja") "Rushia" else it
+                "不知火フレア" -> if (lang != "ja") "Flare" else it
+                "白銀ノエル" -> if (lang != "ja") "Noel" else it
+                "宝鐘マリン" -> if (lang != "ja") "Marine" else it
+                "天音かなた" -> if (lang != "ja") "Kanata" else it
+                "角巻わため" -> if (lang != "ja") "Watame" else it
+                "常闇トワ" -> if (lang != "ja") "Towa" else it
+                "姫森ルーナ" -> if (lang != "ja") "Luna" else it
+                "雪花ラミィ" -> if (lang != "ja") "Lamy" else it
+                "桃鈴ねね" -> if (lang != "ja") "Nene" else it
+                "獅白ぼたん" -> if (lang != "ja") "Botan" else it
+                "尾丸ポルカ" -> if (lang != "ja") "Polka" else it
+                "ラプラス・ダークネス" -> if (lang != "ja") "Laplus " else it
+                "鷹嶺ルイ" -> if (lang != "ja") "Lui" else it
+                "博衣こより" -> if (lang != "ja") "Koyori" else it
+                "沙花叉クロヱ" -> if (lang != "ja") "Chloe" else it
+                "風真いろは" -> if (lang != "ja") "Iroha" else it
                 "Iofi" -> it
                 "Moona" -> it
                 "Risu" -> it
@@ -432,15 +437,15 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Kronii" -> it
                 "Mumei" -> it
                 "Baelz" -> it
-                "花咲みやび" -> it
-                "奏手イヅル" -> it
-                "アルランディス" -> it
-                "律可" -> it
-                "アステル" -> it
-                "岸堂天真" -> it
-                "夕刻ロベル" -> it
-                "影山シエン" -> it
-                "荒咬オウガ" -> it
+                "花咲みやび" -> if (lang != "ja") "Miyabi" else it
+                "奏手イヅル" -> if (lang != "ja") "Izuru" else it
+                "アルランディス" -> if (lang != "ja") "Arurandeisu" else it
+                "律可" -> if (lang != "ja") "Rikka" else it
+                "アステル" -> if (lang != "ja") "Lada" else it
+                "岸堂天真" -> if (lang != "ja") "Temma" else it
+                "夕刻ロベル" -> if (lang != "ja") "Roberu" else it
+                "影山シエン" -> if (lang != "ja") "Shien" else it
+                "荒咬オウガ" -> if (lang != "ja") "Oga" else it
                 "hololive ホロライブ " -> "Hololive Official"
                 else -> it
             }
@@ -482,6 +487,11 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "桃鈴ねね" -> R.drawable.ic_nene
                 "獅白ぼたん" -> R.drawable.ic_botan
                 "尾丸ポルカ" -> R.drawable.ic_poruka
+                "ラプラス・ダークネス" -> R.drawable.ic_laplusdarknesss_1
+                "鷹嶺ルイ" -> R.drawable.ic_takanelui
+                "博衣こより" -> R.drawable.ic_hakuikoyori
+                "沙花叉クロヱ" -> R.drawable.ic_sakamatakuroe
+                "風真いろは" -> R.drawable.ic_kazamairohach
                 "IOFI", "Iofi" -> R.drawable.ic_iofi
                 "Moona", "ムーナ" -> R.drawable.ic_moona
                 "Risu" -> R.drawable.ic_risu

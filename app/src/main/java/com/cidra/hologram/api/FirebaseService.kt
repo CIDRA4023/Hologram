@@ -155,8 +155,10 @@ object FirebaseService {
                 if (tagGroup == "holoJp" || tagGroup == "holoEn"|| tagGroup == "holoId") { tagGroup = "hololive"}
                 val videoItem = WidgetLiveItem(videoId = it.key.toString(),
                     title = it.child("title").value.toString(),
-                    thumbnail = it.child("thumbnailUrlWidget").value.toString(),
+                    thumbnail = it.child("thumbnailUrl").value.toString(),
                     tagGroup = tagGroup)
+
+                Log.i("widgetThumbnailUrl", "${it.child("thumbnailUrlWidget").value.toString()}")
 
                 if (videoItem.tagGroup == setting) {
                     videoItems.add(videoItem)
