@@ -28,4 +28,14 @@
         <item>all</item>
     </string-array>
 
+    <array name="set_transition_url">
+        <item>@string/set_transition_youtube</item>
+        <item>@string/set_transition_browser</item>
+    </array>
+
+    <string-array name="set_transition_url_value">
+        <item>youtubeApp</item>
+        <item>browser</item>
+    </string-array>
+
 </resources>

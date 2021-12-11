@@ -2,6 +2,7 @@ package com.cidra.hologram
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -33,14 +34,36 @@ class TabScheduleFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        val transitionPreference = PreferenceManager.getDefaultSharedPreferences(context)
+        val transitionStatus = transitionPreference.getString("transitionApp", "youtubeApp")
+
         val adapter = UpcomingListAdapter(viewModel, UpcomingListListener {
-            try {
-                val baseUrl = "https://www.youtube.com/watch?v="
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(baseUrl + it)
-                startActivity(intent)
-            } catch (e: ActivityNotFoundException) {
-                Log.e("error ", "$e")
+            val baseUrl = "https://www.youtube.com/watch?v="
+            when (transitionStatus) {
+                "youtubeApp" -> {
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.data = Uri.parse(baseUrl + it)
+                        startActivity(intent)
+                    } catch (e: ActivityNotFoundException) {
+                        Log.e("error ", "$e")
+                    }
+                }
+                else -> {
+                    try {
+                        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://"))
+                        val defaultResInfo =
+                            context?.packageManager?.resolveActivity(browserIntent, PackageManager.MATCH_DEFAULT_ONLY)
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(baseUrl + it))
+                        if (defaultResInfo != null) {
+                            intent.setPackage(defaultResInfo.activityInfo.packageName)
+                            startActivity(intent)
+                        }
+
+                    } catch (e: ActivityNotFoundException) {
+                        Log.e("error ", "$e")
+                    }
+                }
             }
         })
 

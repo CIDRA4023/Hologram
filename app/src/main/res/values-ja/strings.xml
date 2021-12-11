@@ -70,4 +70,9 @@
     <string name="widget_button_update">更新</string>
     <string name="set_widget_group_desc">ウィジェットに表示するアイテムの切り替え</string>
 
+
+    <string name="set_transition_desc">YouTubeを開くアプリの選択</string>
+    <string name="set_transition_youtube">YouTube公式アプリ</string>
+    <string name="set_transition_browser">デフォルトブラウザ</string>
+
 </resources>

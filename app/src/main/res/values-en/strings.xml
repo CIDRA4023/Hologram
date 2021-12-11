@@ -70,5 +70,9 @@
     <string name="app_widget_description">This is an app widget description</string>
     <string name="widget_button_update">UPDATE</string>
 
+    <string name="set_transition_desc">Select an app to open YouTube.</string>
+    <string name="set_transition_youtube">YouTube App</string>
+    <string name="set_transition_browser">Browser</string>
+
 
 </resources>
