@@ -37,12 +37,13 @@
             android:id="@+id/horizontalScrollView2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/right_well"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/center_well"
+            app:layout_constraintStart_toStartOf="@+id/left_well"
             app:layout_constraintTop_toTopOf="@+id/bottom_well">
 
             <com.google.android.material.chip.ChipGroup

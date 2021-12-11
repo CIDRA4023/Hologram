@@ -128,6 +128,8 @@ fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
             data
         }
     }
+//    val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager(recyclerView.context).orientation)
+//    recyclerView.addItemDecoration(dividerItemDecoration)
     val adapter = recyclerView.adapter as NoneListAdapter
     adapter.submitList(filteredData)
 }
