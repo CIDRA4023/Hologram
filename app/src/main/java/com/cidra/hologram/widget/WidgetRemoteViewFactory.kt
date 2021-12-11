@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.cidra.hologram.R
 import com.cidra.hologram.api.FirebaseService
 import com.cidra.hologram.data.WidgetLiveItem
+import java.util.concurrent.ExecutionException
 
 class WidgetRemoteViewFactory (private val mContext: Context) : RemoteViewsService.RemoteViewsFactory {
 
@@ -85,6 +86,8 @@ class WidgetRemoteViewFactory (private val mContext: Context) : RemoteViewsServi
         } catch (e: InterruptedException) {
             e.printStackTrace()
         } catch (e: IndexOutOfBoundsException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
             e.printStackTrace()
         }
 
