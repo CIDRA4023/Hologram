@@ -428,6 +428,9 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Ollie" -> it
                 "Anya" -> it
                 "Reine" -> it
+                "Kobo" -> it
+                "Kaela" -> it
+                "Zeta" -> it
                 "Calliope" -> it
                 "Kiara" -> it
                 "Ina'nis" -> it
@@ -500,6 +503,9 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Ollie" -> R.drawable.ic_ollie
                 "Anya" -> R.drawable.ic_anya
                 "Reine" -> R.drawable.ic_reine
+                "Kobo" -> R.drawable.ic_kobo
+                "Kaela" -> R.drawable.ic_kaela
+                "Zeta" -> R.drawable.ic_zeta
                 "Calliope" -> R.drawable.ic_calliope
                 "Kiara" -> R.drawable.ic_takanashikiara
                 "Ina'nis" -> R.drawable.ic_inanis
