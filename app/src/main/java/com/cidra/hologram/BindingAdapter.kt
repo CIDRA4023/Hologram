@@ -451,6 +451,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "夕刻ロベル" -> if (lang != "ja") "Roberu" else it
                 "影山シエン" -> if (lang != "ja") "Shien" else it
                 "荒咬オウガ" -> if (lang != "ja") "Oga" else it
+                "夜十神封魔" -> if (lang != "ja") "Fuma" else it
+                "羽継烏有" -> if (lang != "ja") "Uyu" else it
+                "緋崎ガンマ " -> if (lang != "ja") "Gamma" else it
+                "水無世燐央" -> if (lang != "ja") "Rio" else it
                 "hololive ホロライブ " -> "Hololive Official"
                 else -> it
             }
@@ -526,6 +530,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "夕刻ロベル" -> R.drawable.ic_roberu
                 "影山シエン" -> R.drawable.ic_shien
                 "荒咬オウガ" -> R.drawable.ic_oga
+                "夜十神封魔" -> R.drawable.ic_fuma
+                "羽継烏有" -> R.drawable.ic_uyu
+                "緋崎ガンマ" -> R.drawable.ic_gamma
+                "水無世燐央" -> R.drawable.ic_rio
                 else -> null
             }
             chipIcon?.let { icon ->
