@@ -170,7 +170,7 @@ fun bindRelativeText(relativeText: RelativeTimeTextView, time: String?) {
     val now = Date().time
     val relativeTime = now - dateObject
 
-    relativeText.setReferenceTime(now - relativeTime)
+    relativeText.setReferenceTime(dateObject)
 
 }
 
@@ -455,6 +455,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "羽継烏有" -> if (lang != "ja") "Uyu" else it
                 "緋崎ガンマ " -> if (lang != "ja") "Gamma" else it
                 "水無世燐央" -> if (lang != "ja") "Rio" else it
+                "Altare" -> it
+                "Dezmond" -> it
+                "Axel" -> it
+                "Vesper" -> it
                 "hololive ホロライブ " -> "Hololive Official"
                 else -> it
             }
@@ -486,7 +490,7 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "兎田ぺこら" -> R.drawable.ic_pekora
                 "潤羽るしあ" -> R.drawable.ic_rushia
                 "不知火フレア" -> R.drawable.ic_flare
-                "白銀ノエル" -> R.drawable.ic_fubuki
+                "白銀ノエル" -> R.drawable.ic_noel
                 "宝鐘マリン" -> R.drawable.ic_houshoumarin
                 "天音かなた" -> R.drawable.ic_amanekanata
                 "角巻わため" -> R.drawable.ic_watame
@@ -534,6 +538,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "羽継烏有" -> R.drawable.ic_uyu
                 "緋崎ガンマ" -> R.drawable.ic_gamma
                 "水無世燐央" -> R.drawable.ic_rio
+                "Altare" -> R.drawable.ic_altare
+                "Dezmond" -> R.drawable.ic_dezmond
+                "Axel" -> R.drawable.ic_axel
+                "Vesper" -> R.drawable.ic_vesper
                 else -> null
             }
             chipIcon?.let { icon ->

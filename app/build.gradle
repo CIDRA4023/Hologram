@@ -33,8 +33,8 @@ android {
         applicationId "com.cidra.Hologram"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 21100001
-        versionName "2.11.01"
+        versionCode 21100003
+        versionName "2.11.02"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
