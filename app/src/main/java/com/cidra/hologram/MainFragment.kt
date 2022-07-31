@@ -99,6 +99,21 @@ class MainFragment : Fragment() {
                 }
             }
 
+            //ベータ版を試す
+            R.id.try_beta -> {
+
+                val packageNameBeta = "com.cidra.hologram_beta"
+                val uri: Uri = Uri.parse("market://details?id=$packageNameBeta")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+
+                try {
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    startActivity(Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://play.google.com/store/apps/details?id=$packageNameBeta")))
+                }
+            }
+
             R.id.preference -> {
                 findNavController().navigate(R.id.action_mainFragment_to_preferenceFragment)
             }

@@ -59,7 +59,7 @@ class AboutThisAppFragment : Fragment() {
 
         view.terms_app.setOnClickListener {
             try {
-                val termsUrl = "https://github.com/CIDRA4023/Hologram/blob/master/Terms.md"
+                val termsUrl = "https://cidra4023.github.io/hologram-app/terms.html"
                 val intentTerms = Intent(Intent.ACTION_VIEW)
                 intentTerms.data = Uri.parse(termsUrl)
                 startActivity(intentTerms)
@@ -70,7 +70,7 @@ class AboutThisAppFragment : Fragment() {
 
         view.prvacy_policy_app.setOnClickListener {
             try {
-                val policyUrl = "https://github.com/CIDRA4023/Hologram/blob/master/PrivacyPolicy.md"
+                val policyUrl = "https://cidra4023.github.io/hologram-app/privacy-policy.html"
                 val intentPolicy = Intent(Intent.ACTION_VIEW)
                 intentPolicy.data = Uri.parse(policyUrl)
                 startActivity(intentPolicy)

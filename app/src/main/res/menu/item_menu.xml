@@ -24,6 +24,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/try_beta"
+        android:title="@string/try_beta"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/preference"
         android:title="@string/preference"
         app:showAsAction="never" />
