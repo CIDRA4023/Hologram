@@ -15,8 +15,14 @@
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_cake_24.xml" value="0.1632034632034632" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.19177489177489176" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_draw_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2265" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1225" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_rate_review_24.xml" value="0.1225" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.19177489177489176" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_science_24.xml" value="0.1225" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1225" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.357" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.19177489177489176" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.19177489177489176" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/drawable/ic_choko.xml" value="0.18787878787878787" />
@@ -48,7 +54,9 @@
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/web_view.xml" value="0.11296296296296296" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/widget_item_vf.xml" value="0.3087719298245614" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/layout/widget_layout.xml" value="0.33" />
-        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/menu/item_menu.xml" value="0.3087719298245614" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/menu-v26/item_menu.xml" value="0.3614583333333333" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/menu/item_menu.xml" value="0.18" />
+        <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/menu/menu.xml" value="0.2600877192982456" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3223684210526316" />
         <entry key="..\:/Users/MAIN-PC/AndroidStudioProjects/Hologram/app/src/main/res/xml/preferences.xml" value="0.33" />
       </map>

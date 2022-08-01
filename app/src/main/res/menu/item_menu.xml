@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-<!--    <item-->
-<!--        android:id="@+id/policy"-->
-<!--        android:title="@string/policy"-->
-<!--        app:showAsAction="never" />-->
-
-    <item
-        android:id="@+id/share"
-        android:title="@string/share"
-        app:showAsAction="never"
-        />
-
-    <item
-        android:id="@+id/about_app"
-        android:title="@string/about_app"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/review"
-        android:title="@string/review"
-        app:showAsAction="never" />
-
     <item
         android:id="@+id/try_beta"
+        android:icon="@drawable/ic_baseline_science_24"
         android:title="@string/try_beta"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
+
 
     <item
-        android:id="@+id/preference"
-        android:title="@string/preference"
-        app:showAsAction="never" />
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        android:title=""
+        app:showAsAction="always" >
 
+        <menu>
+
+            <item
+                android:id="@+id/share"
+                android:title="@string/share"
+                android:icon="@drawable/ic_baseline_share_24"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/about_app"
+                android:icon="@drawable/ic_baseline_info_24"
+                android:title="@string/about_app"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/review"
+                android:title="@string/review"
+                android:icon="@drawable/ic_baseline_rate_review_24"
+                app:showAsAction="never" />
+
+
+            <item
+                android:id="@+id/preference"
+                android:title="@string/preference"
+                android:icon="@drawable/ic_baseline_settings_24"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
 </menu>
