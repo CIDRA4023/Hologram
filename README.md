@@ -1,4 +1,5 @@
 # 「ホロ・グラム」- ホロライブVtuberの配信予定確認アプリ -
+https://play.google.com/store/apps/details?id=com.cidra.Hologram
 
 ## 概要
 ホロライブVtuberの配信を確認するためのアプリです。
@@ -16,12 +17,22 @@
 | 配信中画面                                                                                            | 配信予定画面                                                                                          | アーカイブ画面                                                                                        |
 | <img src="https://user-images.githubusercontent.com/73424654/137583501-93defad9-03f4-450f-97f8-64fba2cee9c7.png" width="360"> | <img src="https://user-images.githubusercontent.com/73424654/137583515-8555cae8-8fde-4e04-8011-0312567a9163.png" width="360"> | <img src="https://user-images.githubusercontent.com/73424654/137583529-26a639c0-2157-4a17-98d4-8653bfee4b49.png" width="360"> |
 |                                                                                                       |                                                                                                       |                                                                                                       |
+## 主な使用技術
+* MVVM
+* Kotlin Coroutine
+* JetPack
+  * Navigation Component
+  * ViewModel
+  * LiveData
+  * SharedPreferences
+* In-App-Update
+* AppWidgetProvider
+
 
 ## 使用ライブラリ
 
 * [Firebase](https://firebase.google.com/?hl=ja)
   * Realtime Database
-  * Cloud Functions
   * Analytics
   * Crashlytics
 * [glide](https://github.com/bumptech/glide)
