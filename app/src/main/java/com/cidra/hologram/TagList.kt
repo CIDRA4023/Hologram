@@ -88,6 +88,22 @@ object TagList {
         "夕刻ロベル" to "UCANDOlYTJT7N5jlRC3zfzVA",
         "影山シエン" to "UChSvpZYRPh0FvG4SJGSga3g",
         "荒咬オウガ" to "UCwL7dgTxKo8Y4RFIKWaf8gA",
-        "Hololive Official" to "UCJFZiqLMntJufDCHc6bQixg"
+        "夜十神封魔" to "UCc88OV45ICgHbn3ZqLLb52w",
+        "羽継烏有" to "UCgRqGV1gBf2Esxh0Tz1vxzw",
+        "緋崎ガンマ" to "UCkT1u65YS49ca_LsFwcTakw",
+        "水無世燐央" to "UCdfMHxjcCc2HSd9qFvfJgjg",
+        "Altare" to "UCyxtGMdWlURZ30WSnEjDOQw",
+        "Dezmond" to "UC7MMNHR-kf9EN1rXiesMTMw",
+        "Axel" to "UC2hx0xVkMoHGWijwr_lA01w",
+        "Vesper" to "UCDRWSO281bIHYVi-OV3iFYA",
+        "Bettel" to "UCHP4f7G2dWD4qib7BMatGAw",
+        "Flayon" to "UC060r4zABV18vcahAWR1n7w",
+        "Hakka" to "UC7gxU6NXjKF1LrgOddPzgTw",
+        "Josuiji" to "UCMqGG8BRAiI1lJfKOpETM_w",
+        "Hololive JP" to "UCJFZiqLMntJufDCHc6bQixg",
+        "HOLOSTARS JP" to "UCWsfcksUUpoEvhia0_ut0bA",
+        "Hololive ID" to "UCfrWoRGlawPQDQxxeIDRP0Q",
+        "Hololive EN" to "UCotXwY6s8pWmuWd_snKYjhg",
+        "HOLOSTARS EN" to "UCJxZpzx4wHzEYD-eCiZPikg"
     )
 }

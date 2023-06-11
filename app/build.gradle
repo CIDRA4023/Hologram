@@ -25,16 +25,16 @@ android {
             keyPassword properties.getProperty("RELEASE_KEY_PASSWORD")
         }
     }
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
 
     defaultConfig {
         applicationId "com.cidra.Hologram"
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 21100004
-        versionName "2.11.04"
+        targetSdkVersion 31
+        versionCode 21100006
+        versionName "2.11.06"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
