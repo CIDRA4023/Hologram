@@ -7,8 +7,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.util.Log
 import android.widget.RemoteViews
+import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.cidra.hologram.R
 
@@ -28,6 +30,7 @@ class WidgetProvider : AppWidgetProvider() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun updateAppWidget(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -49,7 +52,7 @@ class WidgetProvider : AppWidgetProvider() {
                 context,
                 0,
                 clickIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             it.setPendingIntentTemplate(R.id.widget_view_flipper, clickPendingIntent)
 
@@ -63,7 +66,7 @@ class WidgetProvider : AppWidgetProvider() {
                 context,
                 0,
                 nextIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             it.setOnClickPendingIntent(R.id.widget_button_next, nextPendingIntent)
 
@@ -75,7 +78,7 @@ class WidgetProvider : AppWidgetProvider() {
                 context,
                 0,
                 backIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             it.setOnClickPendingIntent(R.id.widget_button_back, backPendingIntent)
 
@@ -87,7 +90,7 @@ class WidgetProvider : AppWidgetProvider() {
                 context,
                 0,
                 updateIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             it.setOnClickPendingIntent(R.id.widget_button_update, updatePendingIntent)
 
@@ -100,6 +103,7 @@ class WidgetProvider : AppWidgetProvider() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
