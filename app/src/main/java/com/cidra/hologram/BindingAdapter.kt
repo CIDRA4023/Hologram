@@ -386,6 +386,9 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "drawing" -> if (lang != "ja") "Drawing" else "お絵かき"
                 "watchAlong" -> if (lang != "ja") "Watch Along" else "同時視聴"
                 "cover" -> if (lang != "ja") "Cover" else "歌ってみた"
+                "membership" -> if (lang != "ja") "Membership" else "メン限"
+                "asmr" -> "ASMR"
+
                 "ときのそら" -> if (lang != "ja") "Sora" else it
                 "ロボ子" -> if (lang != "ja") "Robocosan" else it
                 "さくらみこ" -> if (lang != "ja") "Miko" else it
@@ -472,12 +475,14 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 else -> it
             }
             val chipIcon = when (it) {
-                "game" -> R.drawable.ic_outline_videogame_asset_24
+                "game" -> R.drawable.ic_baseline_videogame_asset_24
                 "sing", "cover", "song" -> R.drawable.ic_baseline_music_note_24
                 "chat" -> R.drawable.ic_baseline_chat_24
                 "birthday" -> R.drawable.ic_baseline_cake_24
                 "drawing" -> R.drawable.ic_baseline_draw_24
                 "watchAlong" -> R.drawable.ic_baseline_ondemand_video_24
+                "ASMR" -> R.drawable.ic_baseline_headphones_24
+                "membership" -> R.drawable.ic_baseline_workspace_premium
 
                 "ときのそら" -> R.drawable.ic_sora
                 "ロボ子" -> R.drawable.ic_roboko
@@ -556,6 +561,8 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Flayon" -> R.drawable.ic_flayon
                 "Hakka" -> R.drawable.ic_hakka
                 "Josuiji" -> R.drawable.ic_josuiji
+
+                "hololive ホロライブ " -> R.drawable.ic_baseline_verified_24
                 else -> null
             }
             chipIcon?.let { icon ->
