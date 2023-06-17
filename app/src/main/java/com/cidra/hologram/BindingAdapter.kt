@@ -69,9 +69,11 @@ fun bindLRecyclerView(recyclerView: RecyclerView, data: List<LiveItem>?) {
         "hololive" -> {
             data?.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
         }
+
         "holoStars" -> {
             data?.filter { it.tagGroup == "holoStars" }
         }
+
         else -> {
             data
         }
@@ -121,9 +123,11 @@ fun bindARecyclerView(recyclerView: RecyclerView, data: List<NoneItem>?) {
         "hololive" -> {
             data?.filter { it.tagGroup == "holoJp" || it.tagGroup == "holoId" || it.tagGroup == "holoEn" }
         }
+
         "holoStars" -> {
             data?.filter { it.tagGroup == "holoStars" }
         }
+
         else -> {
             data
         }
@@ -149,6 +153,7 @@ fun TextView.bindLText(item: String?) {
                 val sdf2 = SimpleDateFormat("HH時 mm分 開始", Locale.getDefault())
                 sdf2.format(dateObject!!).plus(" Started")
             }
+
             else -> {
                 val sdf2 = SimpleDateFormat("HH:mm", Locale.getDefault())
                 sdf2.format(dateObject!!).plus(" Started")
@@ -259,6 +264,7 @@ fun TextView.bindSText(item: String?) {
                     dateObject!!
                 )
             }
+
             else -> {
                 val timeNotationStatus = sharedPreference.getString("timeNotation", "12")
                 Log.i("preference", "$timeNotationStatus")
@@ -281,8 +287,10 @@ fun currentViewerFormat(cviewerText: TextView, count: String) {
             when (count.length) {
                 0, 1, 2, 3 -> cviewerText.text = count.toString()
                     .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit))
+
                 4, 5, 6 -> cviewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
                     .plus(cviewerText.resources.getString(R.string.current_viewer_count_unit_K))
+
                 else -> cviewerText.text =
                     cviewerText.resources.getString(R.string.current_viewer_premium)
             }
@@ -297,7 +305,7 @@ fun currentViewerFormat(cviewerText: TextView, count: String) {
             }
         }
         // 文字列（プレミアム公開）だったとき
-    }else {
+    } else {
         cviewerText.text = cviewerText.resources.getString(R.string.current_viewer_premium)
     }
 
@@ -312,8 +320,10 @@ fun viewerFormat(viewerText: TextView, count: Int) {
         when (count.toString().length) {
             0, 1, 2, 3 -> viewerText.text =
                 count.toString().plus(viewerText.resources.getString(R.string.view_count_unit))
+
             4, 5, 6 -> viewerText.text = (ceil(count.toDouble() / 1000)).toInt().toString()
                 .plus(viewerText.resources.getString(R.string.view_count_unit_K))
+
             else -> viewerText.text = (ceil(count.toDouble() / 100000) / 10).toString()
                 .plus(viewerText.resources.getString(R.string.view_count_unit_M))
         }
@@ -338,10 +348,12 @@ fun bindStatusImage(statusImageView: ImageView, status: NetworkStatus?) {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.loading_animation)
         }
+
         NetworkStatus.ERROR -> {
             statusImageView.visibility = View.VISIBLE
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
+
         NetworkStatus.DONE, NetworkStatus.NONE -> {
             statusImageView.visibility = View.GONE
         }
@@ -354,6 +366,7 @@ fun bindStatusText(statusTextView: TextView, status: NetworkStatus?) {
         NetworkStatus.NONE -> {
             statusTextView.text = statusTextView.resources.getString(R.string.empty_item_live)
         }
+
         NetworkStatus.DONE -> {
             statusTextView.visibility = View.GONE
         }
@@ -481,7 +494,7 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "birthday" -> R.drawable.ic_baseline_cake_24
                 "drawing" -> R.drawable.ic_baseline_draw_24
                 "watchAlong" -> R.drawable.ic_baseline_ondemand_video_24
-                "ASMR" -> R.drawable.ic_baseline_headphones_24
+                "asmr", "ASMR" -> R.drawable.ic_baseline_headphones_24
                 "membership" -> R.drawable.ic_baseline_workspace_premium
 
                 "ときのそら" -> R.drawable.ic_sora
@@ -562,7 +575,8 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Hakka" -> R.drawable.ic_hakka
                 "Josuiji" -> R.drawable.ic_josuiji
 
-                "hololive ホロライブ " -> R.drawable.ic_baseline_verified_24
+                "hololive ホロライブ ", "hololive Indonesia", "holostars English",
+                "hololive English", "holostars" -> R.drawable.ic_baseline_verified_24
                 else -> null
             }
             chipIcon?.let { icon ->
