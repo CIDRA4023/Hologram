@@ -458,6 +458,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Kronii" -> it
                 "Mumei" -> it
                 "Baelz" -> it
+                "Shiori" -> it
+                "Kosiki" -> it
+                "Nerissa" -> it
+                "FUWAMOCO" -> it
                 "花咲みやび" -> if (lang != "ja") "Miyabi" else it
                 "奏手イヅル" -> if (lang != "ja") "Izuru" else it
                 "アルランディス" -> if (lang != "ja") "Arurandeisu" else it
@@ -553,6 +557,10 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Kronii" -> R.drawable.ic_kronii
                 "Mumei" -> R.drawable.ic_mumei
                 "Baelz" -> R.drawable.ic_baelz
+                "Shiori" -> R.drawable.ic_shiori
+                "Koseki" -> R.drawable.ic_koseki
+                "Nerissa" -> R.drawable.ic_nerissa
+                "FUWAMOCO" -> R.drawable.ic_fuwamoco
                 "花咲みやび" -> R.drawable.ic_miyabi
                 "奏手イヅル" -> R.drawable.ic_izuru
                 "アルランディス" -> R.drawable.ic_arurandeisu
