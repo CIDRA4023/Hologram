@@ -438,6 +438,11 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "博衣こより" -> if (lang != "ja") "Koyori" else it
                 "沙花叉クロヱ" -> if (lang != "ja") "Chloe" else it
                 "風真いろは" -> if (lang != "ja") "Iroha" else it
+                "火威青" -> if(lang != "ja") "Ao" else it
+                "音乃瀬奏" -> if(lang != "ja") "Kanade" else it
+                "一条莉々華" -> if(lang != "ja") "Rika" else it
+                "儒烏風亭らでん" -> if(lang != "ja") "Raden" else it
+                "轟はじめ" -> if(lang != "ja") "Hajime" else it
                 "Iofi" -> it
                 "Moona" -> it
                 "Risu" -> it
@@ -537,6 +542,11 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "博衣こより" -> R.drawable.ic_hakuikoyori
                 "沙花叉クロヱ" -> R.drawable.ic_sakamatakuroe
                 "風真いろは" -> R.drawable.ic_kazamairohach
+                "火威青" -> R.drawable.ic_hiodoshiao
+                "音乃瀬奏" -> R.drawable.ic_otonosekanade1
+                "一条莉々華" -> R.drawable.ic_ichijouririka
+                "儒烏風亭らでん" -> R.drawable.ic_juufuuteiraden
+                "轟はじめ" -> R.drawable.ic_todoroki_hajime1
                 "IOFI", "Iofi" -> R.drawable.ic_iofi
                 "Moona", "ムーナ" -> R.drawable.ic_moona
                 "Risu" -> R.drawable.ic_risu
