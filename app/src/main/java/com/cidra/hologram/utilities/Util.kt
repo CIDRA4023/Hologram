@@ -1,6 +1,7 @@
 package com.cidra.hologram.utilities
 
 import android.util.Log
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,9 +24,30 @@ fun truncate(datetime: Date): Date {
  * yyyy-MM-dd
  */
 fun sdf(date: String): Date {
+
+    Log.e("sdf", date)
     val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
     sdf.timeZone = TimeZone.getTimeZone("UTC")
-    return sdf.parse(date)
+
+    val parsedDate = sdf.parse(date)
+    if (date != sdf.format(parsedDate)) {
+        // フォーマットが一致しない場合の処理をここに記述します
+        // 例えば、エラーメッセージを表示するなど
+        throw ParseException("Invalid date format", 0)
+    }
+    return parsedDate
+
+//    try {
+//
+//    } catch (e: ParseException) {
+//        e.printStackTrace()
+//        throw ParseException("parse error", 0)
+//    }
+//    Log.e("sdf", date)
+////    if(date == "null") return  Date()
+//    val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+//    sdf.timeZone = TimeZone.getTimeZone("UTC")
+//    return sdf.parse(date)
 }
 
 /**

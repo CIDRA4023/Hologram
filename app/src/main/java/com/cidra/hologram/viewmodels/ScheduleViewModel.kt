@@ -84,6 +84,7 @@ class ScheduleViewModel : ViewModel() {
     fun refresh() {
         viewModelScope.launch {
             val getVideoList = FirebaseService.getUpcomingItem()
+            Log.e("sdf" ,"${getVideoList.map { it.scheduledStartTime }}")
             _todayItem.value =
                 getVideoList.filter { truncate(sdf(it.scheduledStartTime)) == truncate(Date()) }
             _tomorrowItem.value =

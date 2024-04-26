@@ -489,11 +489,12 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Hakka" -> it
                 "Josuiji" -> it
                 "" -> it
-                "hololive ホロライブ " -> "Hololive JP"
+                "hololive ホロライブ" -> "Hololive JP"
                 "holostars" -> "HOLOSTARS JP"
                 "hololive Indonesia" -> "Hololive ID"
                 "hololive English" -> "Hololive EN"
                 "holostars English" -> "HOLOSTARS EN"
+                "hololive DEV_IS" -> "Hololive DEV_IS"
                 else -> it
             }
             val chipIcon = when (it) {
@@ -593,8 +594,8 @@ fun bindAddChip(parent: ViewGroup, tag: List<String>) {
                 "Hakka" -> R.drawable.ic_hakka
                 "Josuiji" -> R.drawable.ic_josuiji
 
-                "hololive ホロライブ ", "hololive Indonesia", "holostars English",
-                "hololive English", "holostars" -> R.drawable.ic_baseline_verified_24
+                "hololive ホロライブ", "hololive Indonesia", "holostars English",
+                "hololive English", "holostars", "hololive DEV_IS" -> R.drawable.ic_baseline_verified_24
                 else -> null
             }
             chipIcon?.let { icon ->
